@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbl6hwa0v1ug3"]
+
+[ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://tree.tscn" id="2_feb5d"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fc0e3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = -1
+offset_left = -585.0
+offset_top = -267.0
+offset_right = 2762.0
+offset_bottom = 1374.0
+color = Color(0, 0.340918, 0.0844198, 1)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(130, 254)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(89, 480)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(242, 504)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(87, 687)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(257, 715)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(153, 877)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(285, 952)
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(-31, 1010)
+
+[node name="PlayerLol" parent="." instance=ExtResource("1_e2o6t")]
+unique_name_in_owner = true
+y_sort_enabled = false
+position = Vector2(958, 542)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DeadMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="DeadMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.658824)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DeadMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 206
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
