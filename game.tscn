@@ -75,5 +75,15 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690695, 0.00276425, 0.932588, 1)
+
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
