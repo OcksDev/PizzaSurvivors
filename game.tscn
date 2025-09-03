@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://tree.tscn" id="2_feb5d"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_feb5d"]
+[ext_resource type="PackedScene" uid="uid://y60ud35e3tb1" path="res://main_menu.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -77,25 +76,7 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="MainMenu"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.690695, 0.00276425, 0.932588, 1)
-
-[node name="Button" type="Button" parent="MainMenu/ColorRect"]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 246.0
-offset_right = 515.0
-offset_bottom = 277.0
-text = "RAHHHHH"
-icon = SubResource("CanvasTexture_feb5d")
+[node name="MainMenu" parent="." instance=ExtResource("4_fc0e3")]
 
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
