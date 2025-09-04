@@ -1,5 +1,6 @@
 extends Node2D
 	
+@export var player : Node2D;
 func spawn_mob():
 	var mob = preload("res://nerd.tscn").instantiate();
 	%PlayerLol._path().progress_ratio = randf();

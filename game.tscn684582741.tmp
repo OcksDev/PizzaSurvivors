@@ -5,10 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://tree.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c2ulo6dgbvcf0" path="res://main_menu.tscn" id="4_fc0e3"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fc0e3")
-player = NodePath("PlayerLol")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -128
@@ -51,6 +50,7 @@ y_sort_enabled = false
 position = Vector2(958, 542)
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="DeadMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -76,8 +76,7 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenu" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("4_fc0e3")]
-timer = NodePath("../Timer")
+[node name="MainMenu" parent="." instance=ExtResource("4_fc0e3")]
 
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
