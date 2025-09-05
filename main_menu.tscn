@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ulo6dgbvcf0"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ulo6dgbvcf0"]
 
 [ext_resource type="Script" uid="uid://bo5hsit1wovte" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://dbl6hwa0v1ug3" path="res://game.tscn" id="2_7vrkn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_feb5d"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_06t4h")
+game_scene = ExtResource("2_7vrkn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

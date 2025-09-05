@@ -1,15 +1,19 @@
 extends CanvasLayer
-@export var timer : Timer
+@export var game_scene : Resource
+@export var credits_scene : Resource
+@export var changelog_scene : Resource
+
 
 func _on_start_pressed() -> void:
-	hide();
-	timer.start();
+	get_tree().change_scene_to_packed(game_scene);
 	pass # Replace with function body.
 
 
 func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_packed(credits_scene);
 	pass # Replace with function body.
 
 
 func _on_changelog_pressed() -> void:
+	get_tree().change_scene_to_packed(changelog_scene);
 	pass # Replace with function body.
