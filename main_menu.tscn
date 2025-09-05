@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2ulo6dgbvcf0"]
+[gd_scene load_steps=6 format=3 uid="uid://c2ulo6dgbvcf0"]
 
 [ext_resource type="Script" uid="uid://bo5hsit1wovte" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="PackedScene" uid="uid://dbl6hwa0v1ug3" path="res://game.tscn" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://qqqto015vns6" path="res://main_menu_assets/pizza_button_with_pepperoni.png" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://dx017wlltbnqy" path="res://main_menu_assets/pizza_button.png" id="3_jix8l"]
+
+[sub_resource type="Theme" id="Theme_jix8l"]
+default_font_size = 90
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0.956863, 0.929412, 0.607843, 1)
+Button/constants/outline_size = 17
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_outline_size = 90
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_06t4h")
@@ -87,12 +95,12 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_fu7sn")
 
 [node name="start" type="Button" parent="ColorRect"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 820.0
 offset_top = 673.0
 offset_right = 1098.0
 offset_bottom = 750.0
+theme = SubResource("Theme_jix8l")
 theme_override_font_sizes/font_size = 50
 text = "Start"
 flat = true
