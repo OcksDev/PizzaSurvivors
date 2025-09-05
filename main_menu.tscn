@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.690695, 0.00276425, 0.932588, 1)
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="RAHHH" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 421.0
 offset_top = 246.0
@@ -71,6 +71,7 @@ offset_bottom = 751.0
 text = "Start"
 icon = SubResource("CanvasTexture_feb5d")
 
+[connection signal="pressed" from="ColorRect/RAHHH" to="." method="_on_rahhh_pressed"]
 [connection signal="pressed" from="ColorRect/changelog" to="." method="_on_changelog_pressed"]
 [connection signal="pressed" from="ColorRect/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ColorRect/start" to="." method="_on_start_pressed"]

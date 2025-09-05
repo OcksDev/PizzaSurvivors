@@ -17,3 +17,8 @@ func _on_credits_pressed() -> void:
 func _on_changelog_pressed() -> void:
 	get_tree().change_scene_to_packed(changelog_scene);
 	pass # Replace with function body.
+
+
+func _on_rahhh_pressed() -> void:
+	get_child(0).color = Color(randf(), randf(), randf(), 1.0)
+	pass # Replace with function body.
