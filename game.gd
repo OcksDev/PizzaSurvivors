@@ -1,6 +1,16 @@
 extends Node2D
 	
 @export var player : Node2D;
+
+const STARTING_MUSIC = "res://audio/Food.mp3"
+
+func _ready() -> void:
+	# If the music player is not playing or if the music playing is not the starting music, play the starting game music
+	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != STARTING_MUSIC:
+		MusicPlayer.stream = preload(STARTING_MUSIC)
+		MusicPlayer.play()
+
+
 func spawn_mob():
 	var mob = preload("res://nerd.tscn").instantiate();
 	%PlayerLol._path().progress_ratio = randf();
