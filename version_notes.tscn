@@ -26,6 +26,8 @@ theme_override_font_sizes/normal_font_size = 90
 text = "                  -- v0.0.1: --
 - Version notes added.
 - Credits added.
+- WPI splashscreen added
+- Menu and in-game music added
 - Dave has been removed from the team due to a recent increase in cut off senten"
 
 [node name="Label" type="Label" parent="."]

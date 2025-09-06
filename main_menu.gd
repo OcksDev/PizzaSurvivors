@@ -3,6 +3,14 @@ extends CanvasLayer
 @export var credits_scene : Resource
 @export var changelog_scene : Resource
 
+const MENU_MUSIC = "res://audio/Italian Sweetness.mp3"
+
+func _ready() -> void:
+	# If the music player is not playing or if the music playing is not the menu music, play the menu music
+	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != MENU_MUSIC:
+		MusicPlayer.stream = preload(MENU_MUSIC)
+		MusicPlayer.play()
+
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene);
