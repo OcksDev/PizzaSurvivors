@@ -26,7 +26,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_fek7f")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.2
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
