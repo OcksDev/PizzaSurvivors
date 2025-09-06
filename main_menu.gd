@@ -29,4 +29,5 @@ func _on_changelog_pressed() -> void:
 
 func _on_rahhh_pressed() -> void:
 	get_child(0).color = Color(randf(), randf(), randf(), 1.0)
+	%AudioStreamPlayer2D.play();
 	pass # Replace with function body.
