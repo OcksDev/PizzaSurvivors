@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 signal died_lol
 
+@export var items = {
+	"test_item":0,
+	"test_item2":0,
+	};
+
 var health = 5.0;
 
 func _physics_process(delta):
