@@ -3,12 +3,12 @@ extends CanvasLayer
 @export var credits_scene : Resource
 @export var changelog_scene : Resource
 
-const MENU_MUSIC = "res://audio/Italian Sweetness.mp3"
+@export var MENU_MUSIC : Resource
 
 func _ready() -> void:
 	# If the music player is not playing or if the music playing is not the menu music, play the menu music
-	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != MENU_MUSIC:
-		MusicPlayer.stream = preload(MENU_MUSIC)
+	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != MENU_MUSIC.resource_path:
+		MusicPlayer.stream = MENU_MUSIC
 		MusicPlayer.play()
 
 

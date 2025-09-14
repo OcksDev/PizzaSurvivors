@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://tef0f04sfj0e"]
+[gd_scene load_steps=5 format=3 uid="uid://tef0f04sfj0e"]
 
-[ext_resource type="Script" uid="uid://1gf1xcllrtrs" path="res://gun_gun.gd" id="1_3xgr0"]
+[ext_resource type="Script" uid="uid://1gf1xcllrtrs" path="res://scripts/game/gun_gun.gd" id="1_3xgr0"]
 [ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="1_iw16y"]
+[ext_resource type="PackedScene" uid="uid://cg3ugj7a178mq" path="res://scenes/game/bullet.tscn" id="2_hqv0h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fek7f"]
 radius = 711.475
@@ -9,6 +10,7 @@ radius = 711.475
 [node name="GunGun" type="Marker2D"]
 rotation = -0.00823158
 script = ExtResource("1_3xgr0")
+bullet_scene = ExtResource("2_hqv0h")
 
 [node name="Pistol" type="Sprite2D" parent="."]
 position = Vector2(102.004, -0.05759)

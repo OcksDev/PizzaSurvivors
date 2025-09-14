@@ -1,6 +1,7 @@
 extends Node2D
 	
 @export var player : Node2D;
+@export var nerd_scene : Resource
 
 const STARTING_MUSIC = "res://audio/Food.mp3"
 
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 
 func spawn_mob():
-	var mob = preload("res://nerd.tscn").instantiate();
+	var mob = nerd_scene.instantiate();
 	%PlayerLol._path().progress_ratio = randf();
 	add_child(mob);
 	mob.global_position = %PlayerLol._path().global_position;

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2ulo6dgbvcf0"]
 
-[ext_resource type="Script" uid="uid://bo5hsit1wovte" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="PackedScene" uid="uid://dbl6hwa0v1ug3" path="res://game.tscn" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://bo5hsit1wovte" path="res://scripts/menu/main_menu.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://dbl6hwa0v1ug3" path="res://scenes/game/game.tscn" id="2_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://qqqto015vns6" path="res://main_menu_assets/pizza_button_with_pepperoni.png" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://dx017wlltbnqy" path="res://main_menu_assets/pizza_button.png" id="3_jix8l"]
-[ext_resource type="PackedScene" uid="uid://b7tniapdok74a" path="res://credits.tscn" id="3_nlkkf"]
-[ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://version_notes.tscn" id="4_qe12f"]
+[ext_resource type="PackedScene" uid="uid://b7tniapdok74a" path="res://scenes/menu/credits.tscn" id="3_nlkkf"]
+[ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://scenes/menu/version_notes.tscn" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="5_qe12f"]
 [ext_resource type="AudioStream" uid="uid://w05nvw6kr2tm" path="res://audio/vine-boom.mp3" id="6_8qtwp"]
 
