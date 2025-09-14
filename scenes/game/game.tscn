@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=6 format=3 uid="uid://dbl6hwa0v1ug3"]
 
-[ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://player.tscn" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://tree.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://scenes/game/tree.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://xxfc5ha2onxg" path="res://scenes/game/nerd.tscn" id="2_lfrn8"]
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
 script = ExtResource("1_fc0e3")
 player = NodePath("PlayerLol")
+nerd_scene = ExtResource("2_lfrn8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -128

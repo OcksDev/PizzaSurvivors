@@ -1,5 +1,6 @@
 extends Marker2D
 
+@export var bullet_scene : Resource
 
 var shoots = false;
 
@@ -12,7 +13,7 @@ func _physics_process(delta):
 func shoot():
 	if(!shoots):
 		return;
-	var b = preload("res://bullet.tscn");
+	var b = bullet_scene # preload(bullet_scene);
 	var new_b = b.instantiate();
 	%ShootyShootyBangBang.add_child(new_b);
 	new_b.global_position = %ShootyShootyBangBang.global_position;

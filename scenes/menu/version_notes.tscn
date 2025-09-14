@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddmwh06doxmyh"]
 
-[ext_resource type="Script" uid="uid://b480cqti2atim" path="res://to_main_menu.gd" id="1_dwlt3"]
+[ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="1_dwlt3"]
 
 [node name="VersionNotes" type="Node2D"]
 
