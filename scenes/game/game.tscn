@@ -52,8 +52,14 @@ unique_name_in_owner = true
 y_sort_enabled = false
 position = Vector2(958, 542)
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="WaveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="SubTimer" type="Timer" parent="WaveTimer"]
+unique_name_in_owner = true
+one_shot = true
 
 [node name="DeadMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -87,4 +93,5 @@ max_distance = 1e+07
 panning_strength = 0.0
 
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="WaveTimer/SubTimer" to="." method="_on_timer_timeout"]
