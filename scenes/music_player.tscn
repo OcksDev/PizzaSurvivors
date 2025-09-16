@@ -1,4 +1,6 @@
 [gd_scene format=3 uid="uid://45f1l7sy7ymf"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D"]
+max_distance = 9.22337e+18
+panning_strength = 0.0
 bus = &"Music"

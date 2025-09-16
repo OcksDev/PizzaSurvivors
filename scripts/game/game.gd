@@ -11,8 +11,6 @@ func _ready() -> void:
 	# If the music player is not playing or if the music playing is not the starting music, play the starting game music
 	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != STARTING_MUSIC:
 		MusicPlayer.stream = preload(STARTING_MUSIC)
-		MusicPlayer.panning_strength = 0;
-		MusicPlayer.max_distance = 100000000;
 		MusicPlayer.play()
 	startwave(0)
 
