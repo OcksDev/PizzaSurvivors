@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=7 format=3 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://scenes/game/tree.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://xxfc5ha2onxg" path="res://scenes/game/nerd.tscn" id="2_lfrn8"]
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bmrgdb0lfk2qq" path="res://scenes/game/world.tscn" id="6_5i0tg"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
@@ -12,16 +13,8 @@ script = ExtResource("1_fc0e3")
 player = NodePath("PlayerLol")
 nerd_scene = ExtResource("2_lfrn8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="StaticObjects" type="CanvasLayer" parent="."]
 layer = -128
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = -1
-offset_left = -585.0
-offset_top = -267.0
-offset_right = 2762.0
-offset_bottom = 1374.0
-color = Color(0, 0.340918, 0.0844198, 1)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_feb5d")]
 position = Vector2(130, 254)
@@ -91,6 +84,8 @@ stream = ExtResource("4_fc0e3")
 autoplay = true
 max_distance = 1e+07
 panning_strength = 0.0
+
+[node name="World" parent="." instance=ExtResource("6_5i0tg")]
 
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
