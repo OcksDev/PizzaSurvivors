@@ -12,8 +12,14 @@ var health = 5.0;
 func _physics_process(delta):
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
 	velocity = dir * 600
+	
+	if (dir.x > 0):
+		%PlayerVisual.scale.x = 1;
+	elif (dir.x < 0):
+		%PlayerVisual.scale.x = -1;
+	
 	move_and_slide()
-	var a = $HappyBoo
+	var a = %HappyBoo
 	if velocity.length() > 0:
 		a.play_walk_animation()
 	else:

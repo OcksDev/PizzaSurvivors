@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpjqvkj1kr5fo"]
 
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://hhxdnhwgp4gf" path="res://cool_player.gd" id="1_onrkg"]
-[ext_resource type="PackedScene" uid="uid://tef0f04sfj0e" path="res://gun_gun.tscn" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://hhxdnhwgp4gf" path="res://scripts/game/cool_player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://tef0f04sfj0e" path="res://scenes/game/gun_gun.tscn" id="3_i3pqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 42.0
@@ -30,7 +30,11 @@ y_sort_enabled = true
 platform_floor_layers = 4294901760
 script = ExtResource("1_onrkg")
 
-[node name="HappyBoo" parent="." instance=ExtResource("1_4flbx")]
+[node name="PlayerVisual" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="HappyBoo" parent="PlayerVisual" instance=ExtResource("1_4flbx")]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
