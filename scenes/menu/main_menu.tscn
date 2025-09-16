@@ -124,6 +124,7 @@ text = "Start"
 flat = true
 
 [node name="CloseGameButton" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 1534.0
 offset_top = 8.0
 offset_right = 1912.0

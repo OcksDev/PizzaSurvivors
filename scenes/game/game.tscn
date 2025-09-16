@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=9 format=3 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
@@ -8,22 +8,16 @@
 [ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="5_5i0tg"]
 [ext_resource type="Script" uid="uid://cxeb5otsj7hmg" path="res://scripts/menu/to_game.gd" id="5_bdhmt"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bdhmt"]
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
 script = ExtResource("1_fc0e3")
 player = NodePath("PlayerLol")
 nerd_scene = ExtResource("2_lfrn8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="StaticLayerParentNode" type="CanvasLayer" parent="."]
 layer = -128
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = -1
-offset_left = -585.0
-offset_top = -267.0
-offset_right = 2762.0
-offset_bottom = 1374.0
-color = Color(0, 0.340918, 0.0844198, 1)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_feb5d")]
 position = Vector2(130, 254)
@@ -127,6 +121,63 @@ stream = ExtResource("4_fc0e3")
 autoplay = true
 max_distance = 1e+07
 panning_strength = 0.0
+
+[node name="World" type="Node" parent="."]
+
+[node name="BorderHitbox" type="StaticBody2D" parent="World"]
+
+[node name="Bottom" type="CollisionShape2D" parent="World/BorderHitbox"]
+position = Vector2(0, 5000)
+shape = SubResource("WorldBoundaryShape2D_bdhmt")
+one_way_collision = true
+
+[node name="Left" type="CollisionShape2D" parent="World/BorderHitbox"]
+position = Vector2(-5000, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_bdhmt")
+one_way_collision = true
+
+[node name="Right" type="CollisionShape2D" parent="World/BorderHitbox"]
+position = Vector2(5000, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_bdhmt")
+one_way_collision = true
+
+[node name="Top" type="CollisionShape2D" parent="World/BorderHitbox"]
+position = Vector2(0, -5000)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_bdhmt")
+one_way_collision = true
+
+[node name="VisibleBorder" type="Node" parent="World"]
+
+[node name="Top" type="ColorRect" parent="World/VisibleBorder"]
+offset_left = -7000.0
+offset_top = -6000.0
+offset_right = 7000.0
+offset_bottom = -5000.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Left" type="ColorRect" parent="World/VisibleBorder"]
+offset_left = -7000.0
+offset_top = -5000.0
+offset_right = -5000.0
+offset_bottom = 5000.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Right" type="ColorRect" parent="World/VisibleBorder"]
+offset_left = 5000.0
+offset_top = -5000.0
+offset_right = 7000.0
+offset_bottom = 5000.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Bottom" type="ColorRect" parent="World/VisibleBorder"]
+offset_left = -7000.0
+offset_top = 5000.0
+offset_right = 7000.0
+offset_bottom = 6000.0
+color = Color(0, 0, 0, 0.392157)
 
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
