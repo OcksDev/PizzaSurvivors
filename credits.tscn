@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://jccgwoegspnb"]
+
+[ext_resource type="Script" path="res://to_main_menu.gd" id="1_nm7lk"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 1914.0
+offset_bottom = 1073.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/mono_font_size = 1
+theme_override_font_sizes/normal_font_size = 121
+text = "Credits:
+
+People, not Dave, though.
+
+Music:
+\"Food\" by agerabeatz
+https://pixabay.com/music/beats-food-256079/
+\"Italian Sweetness\" by Sonican
+https://pixabay.com/music/folk-italian-sweetness-tarantella-loop-366571/
+
+Sounds:
+AVA - Instinct - Riser - Cobra.wav by AVA_MUSIC_GROUP -- https://freesound.org/s/397143/ -- License: Attribution NonCommercial 3.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_right = 293.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 131
+text = "Back"
+script = ExtResource("1_nm7lk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.319424, 0.184101, 9.62615e-08, 1)
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

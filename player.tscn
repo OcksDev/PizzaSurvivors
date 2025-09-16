@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://byoyrp6ye5mu6"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
+[ext_resource type="Script" path="res://cool_player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" path="res://gun_gun.tscn" id="3_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 42.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 44.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.623529, 0.866667, 0.317647, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Curve2D" id="Curve2D_i3pqv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1079, -713, 0, 0, 0, 0, 1092, -722, 0, 0, 0, 0, 1103, 718, 0, 0, 0, 0, -1079, 700, 0, 0, 0, 0, -1079, -713)
+}
+point_count = 5
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+y_sort_enabled = true
+platform_floor_layers = 4294901760
+script = ExtResource("1_onrkg")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_4flbx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(2, -10)
+polygon = PackedVector2Array(72, -113, 54, -133, -65, -129, -82, -101, -121, -181, -95, -167, 79, -175, 106, -184)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D"]
+modulate = Color(1, 0, 0, 1)
+offset_left = -20.0
+offset_top = -165.0
+offset_right = 96.0
+offset_bottom = -130.0
+rotation = -0.0401596
+text = "Gary"
+
+[node name="PlayerLol" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GunGun" parent="." instance=ExtResource("3_i3pqv")]
+position = Vector2(-1, -51)
+rotation = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_i3pqv")
+
+[node name="ScareBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareBox"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_i3pqv")
+debug_color = Color(0.507217, 0.458961, 0.912437, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -51.0
+offset_top = 21.0
+offset_right = 52.0
+offset_bottom = 32.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+max_value = 5.0
+value = 2.15
+show_percentage = false
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_i3pqv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(1096.09, -186.41)
+rotation = 1.56316
+progress = 2706.62

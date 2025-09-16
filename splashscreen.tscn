@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://sfe0yx6b6b33"]
+
+[ext_resource type="Texture2D" uid="uid://c0bv62wtbuo8s" path="res://logos/wpi_logo.png" id="1_2kxcd"]
+[ext_resource type="Script" path="res://splashscreen.gd" id="1_pkkup"]
+[ext_resource type="AudioStream" uid="uid://clavb1xmbhetq" path="res://audio/dramatic.wav" id="3_cte4o"]
+
+[sub_resource type="Animation" id="Animation_kdb2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cte4o"]
+resource_name = "splashscreen_color"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.95, 4.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3viy"]
+_data = {
+&"RESET": SubResource("Animation_kdb2t"),
+&"splashscreen_color": SubResource("Animation_cte4o")
+}
+
+[sub_resource type="Animation" id="Animation_pkkup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2kxcd"]
+resource_name = "splashscreen"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.67451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.25, 4),
+"transitions": PackedFloat32Array(0.378929, 3.03143, 1),
+"update": 0,
+"values": [Vector2(0.35, 0.35), Vector2(0.5, 0.5), Vector2(120, 120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cte4o"]
+_data = {
+&"RESET": SubResource("Animation_pkkup"),
+&"splashscreen": SubResource("Animation_2kxcd")
+}
+
+[sub_resource type="GDScript" id="GDScript_cte4o"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Splashscreen" type="Node2D"]
+script = ExtResource("1_pkkup")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+offset_left = -1073.0
+offset_top = -658.0
+offset_right = 1059.0
+offset_bottom = 637.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundColor"]
+libraries = {
+&"": SubResource("AnimationLibrary_j3viy")
+}
+autoplay = "splashscreen_color"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WPILogo" type="Sprite2D" parent="."]
+texture = ExtResource("1_2kxcd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WPILogo"]
+libraries = {
+&"": SubResource("AnimationLibrary_cte4o")
+}
+autoplay = "splashscreen"
+script = SubResource("GDScript_cte4o")
+
+[node name="SplashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cte4o")
+bus = &"MenuSFX"
+
+[connection signal="animation_finished" from="WPILogo/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
