@@ -123,7 +123,16 @@ theme_override_font_sizes/font_size = 50
 text = "Start"
 flat = true
 
+[node name="CloseGameButton" type="Button" parent="ColorRect"]
+offset_left = 1534.0
+offset_top = 8.0
+offset_right = 1912.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 66
+text = "Quit game"
+
 [connection signal="pressed" from="ColorRect/RAHHH" to="." method="_on_rahhh_pressed"]
 [connection signal="pressed" from="ColorRect/changelog" to="." method="_on_changelog_pressed"]
 [connection signal="pressed" from="ColorRect/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ColorRect/CloseGameButton" to="." method="_on_close_game_button_pressed"]
