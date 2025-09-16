@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=8 format=3 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://scenes/game/tree.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://xxfc5ha2onxg" path="res://scenes/game/nerd.tscn" id="2_lfrn8"]
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="5_5i0tg"]
+[ext_resource type="Script" uid="uid://cxeb5otsj7hmg" path="res://scripts/menu/to_game.gd" id="5_bdhmt"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
 y_sort_enabled = true
@@ -78,12 +80,46 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -534.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 206
-text = "Game Over"
+text = "Tomatoh no!
+You died!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="DeadMenu"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.644
+anchor_right = 0.5
+anchor_bottom = 0.644
+offset_left = -223.5
+offset_top = -89.5201
+offset_right = 223.5
+offset_bottom = 76.4799
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "Restart"
+script = ExtResource("5_bdhmt")
+
+[node name="MainMenuButton" type="Button" parent="DeadMenu"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.644
+anchor_right = 0.5
+anchor_bottom = 0.644
+offset_left = -319.5
+offset_top = 114.48
+offset_right = 319.5
+offset_bottom = 280.48
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "Main Menu"
+script = ExtResource("5_5i0tg")
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -95,3 +131,5 @@ panning_strength = 0.0
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaveTimer/SubTimer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="DeadMenu/RestartButton" to="DeadMenu/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="DeadMenu/MainMenuButton" to="DeadMenu/MainMenuButton" method="_on_pressed"]
