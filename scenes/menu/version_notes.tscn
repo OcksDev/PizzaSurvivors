@@ -27,7 +27,11 @@ text = "                  -- v0.0.2: --
 - Enemies now spawn in waves
 - Wave counter added to show progress
 - Background updated to match pizza theme
+- World now has borders
 - Player now flips horizontally when moving left/right
+- Added quit game button
+- Added game over screen with menu and replay buttons
+- Fixed sound FX volume
 
 
                   -- v0.0.1: --
