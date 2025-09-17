@@ -32,6 +32,7 @@ text = "                  -- v0.0.2: --
 - Added quit game button
 - Added game over screen with menu and replay buttons
 - Fixed sound FX volume
+- Organized internal file structure
 
 
                   -- v0.0.1: --
