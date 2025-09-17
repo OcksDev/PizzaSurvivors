@@ -23,7 +23,14 @@ offset_bottom = 1024.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 90
-text = "                  -- v0.0.1: --
+text = "                  -- v0.0.2: --
+- Enemies now spawn in waves
+- Wave counter added to show progress
+- Background updated to match pizza theme
+- Player now flips horizontally when moving left/right
+
+
+                  -- v0.0.1: --
 - Version notes added.
 - Credits added.
 - WPI splashscreen added
