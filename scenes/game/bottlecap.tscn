@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://deb1rcxnplilq"]
 
-[ext_resource type="Script" uid="uid://c8eo6opadd5wa" path="res://scripts/game/bottlecap.gd" id="1_gnw27"]
+[ext_resource type="Script" path="res://scripts/game/bottlecap.gd" id="1_gnw27"]
 [ext_resource type="Texture2D" uid="uid://dw7tx7lnyhy8g" path="res://world_assets/bottle cap.png" id="2_s520h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87uf6"]
@@ -28,6 +28,7 @@ script = ExtResource("1_gnw27")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
+texture_filter = 1
 position = Vector2(-3, -21)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_s520h")

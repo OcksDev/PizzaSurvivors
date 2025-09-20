@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cudknqht8k6e"]
+
+[ext_resource type="Texture2D" uid="uid://cgiyinpiiyw44" path="res://world_assets/salt shaka.png" id="1_dl3vv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4j704"]
+
+[node name="SaltShakerUpright" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_dl3vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 60)
+scale = Vector2(6, 8.5)
+shape = SubResource("RectangleShape2D_4j704")
