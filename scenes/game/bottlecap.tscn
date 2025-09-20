@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://deb1rcxnplilq"]
+
+[ext_resource type="Script" uid="uid://c8eo6opadd5wa" path="res://scripts/game/bottlecap.gd" id="1_gnw27"]
+[ext_resource type="Texture2D" uid="uid://dw7tx7lnyhy8g" path="res://world_assets/bottle cap.png" id="2_s520h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87uf6"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87uf6"]
+radius = 19.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2a8rs"]
+radius = 14.0
+height = 54.0
+
+[node name="Bottlecap" type="RigidBody2D"]
+z_as_relative = false
+y_sort_enabled = true
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_87uf6")
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+linear_damp = 5.0
+script = ExtResource("1_gnw27")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-3, -21)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_s520h")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_87uf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2a8rs")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

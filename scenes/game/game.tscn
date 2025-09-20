@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=11 format=4 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://be4hopurbq5pq" path="res://scenes/game/tree.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://xxfc5ha2onxg" path="res://scenes/game/nerd.tscn" id="2_lfrn8"]
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="5_5i0tg"]
@@ -26,36 +25,8 @@ script = ExtResource("1_fc0e3")
 player = NodePath("PlayerLol")
 nerd_scene = ExtResource("2_lfrn8")
 
-[node name="StaticLayerParentNode" type="CanvasLayer" parent="."]
-layer = -128
-
-[node name="StaticBody2D" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(130, 254)
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(89, 480)
-
-[node name="StaticBody2D3" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(242, 504)
-
-[node name="StaticBody2D4" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(87, 687)
-
-[node name="StaticBody2D5" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(257, 715)
-
-[node name="StaticBody2D6" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(153, 877)
-
-[node name="StaticBody2D7" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(285, 952)
-
-[node name="StaticBody2D8" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(-31, 1010)
-
 [node name="PlayerLol" parent="." instance=ExtResource("1_e2o6t")]
 unique_name_in_owner = true
-y_sort_enabled = false
 position = Vector2(958, 542)
 
 [node name="WaveTimer" type="Timer" parent="."]
