@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6aexlsjnqygl"]
+
+[ext_resource type="Texture2D" uid="uid://b2anghakdsp1h" path="res://world_assets/ketchup.png" id="1_b7bow"]
+
+[node name="Ketchup" type="Sprite2D"]
+z_index = -5
+y_sort_enabled = true
+texture = ExtResource("1_b7bow")

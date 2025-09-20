@@ -19,6 +19,11 @@ const SALT_UPRIGHT_RATIO = 3 # For every upright saltshaker, there will be 1 fal
 const SALT_RIGHT_RATIO = 1
 const SALT_LEFT_RATIO = 1
 const NUM_SALTSHAKERS = 30 # An odd number could cause a saltshaker to spawn on the player at start
+const KETCHUP = preload("res://scenes/game/ketchup.tscn")
+const KETCHUP_MIN_SIZE = 1
+const KETCHUP_MAX_SIZE = 5
+const KETCHUP_SPAWN_RATE = 1 # Integer value; 2 will spawn 2 ketchup at wave 1, 4 at wave 2, etc
+const MAX_KETCHUP_SPAWN_PER_WAVE = 20
 
 var enemies_for_wave = -1;
 var current_wave = -1;
@@ -27,6 +32,16 @@ func spawn_bottlecap():
 	var bottlecap_instance = BOTTLECAP.instantiate()
 	add_child(bottlecap_instance)
 	bottlecap_instance.position = Vector2(randi_range(MIN_X, MAX_X), randi_range(MIN_Y, MAX_Y))
+	
+func spawn_ketchup():
+	var ketchup_instance = KETCHUP.instantiate()
+	add_child(ketchup_instance)
+	# Randomize the size
+	var ketchup_scale = randi_range(KETCHUP_MIN_SIZE, KETCHUP_MAX_SIZE)
+	ketchup_instance.scale = Vector2(ketchup_scale, ketchup_scale)
+	# Spawn it just outside of view
+	%PlayerLol._path().progress_ratio = randf();
+	ketchup_instance.global_position = %PlayerLol._path().global_position;
 	
 func spawn_saltshaker(saltshaker_location):
 	var saltshaker_instance
@@ -71,6 +86,10 @@ func startwave(wave):
 	%SubTimer.wait_time = (0.9 / ((0.15 * wave) + 1)) + 0.1;
 	%SubTimer.start();
 	%CurrentWaveDisplay.text = "Current Wave: " + str(current_wave+1);
+	
+	# Spawn more ketchup (blood) the further into the game you go
+	for i in range(min(wave * KETCHUP_SPAWN_RATE, MAX_KETCHUP_SPAWN_PER_WAVE)):
+		spawn_ketchup()
 
 
 func _on_timer_timeout() -> void:
