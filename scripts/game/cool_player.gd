@@ -2,12 +2,26 @@ extends CharacterBody2D
 
 signal died_lol
 
-@export var items = {
+var items = {
 	"damage_increase":0,
 	"attack_speed_increase":0,
 	"move_speed_increase":0,
 	#"bullet_amount_increase":0,
 	"max_health_increase":0,
+	};
+var item_titles = {
+	"damage_increase":"Extra Sauce",
+	"attack_speed_increase":"Faster Serving",
+	"move_speed_increase":"Swifter Feet",
+	#"bullet_amount_increase":"M Increase",
+	"max_health_increase":"Stronger Cheese",
+	};
+var item_descs = {
+	"damage_increase":"+10% Damage",
+	"attack_speed_increase":"+10% Attack Speed",
+	"move_speed_increase":"+10% Movement Speed",
+	#"bullet_amount_increase":"M Increase",
+	"max_health_increase":"+25% Max Health",
 	};
 	
 	
