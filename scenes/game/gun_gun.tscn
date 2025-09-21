@@ -28,6 +28,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_fek7f")
 
 [node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.2
 autostart = true
 

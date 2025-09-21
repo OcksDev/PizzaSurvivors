@@ -1,5 +1,7 @@
 extends Area2D
 var total_dist = 0;
+var damage = 0;
+
 func _physics_process(delta: float):
 	const speed = 2000;
 	const max_dist = 2000;
@@ -12,5 +14,5 @@ func _physics_process(delta: float):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("take_damage"): body.take_damage(); 
+	if body.has_method("take_damage"): body.take_damage(damage); 
 	queue_free();

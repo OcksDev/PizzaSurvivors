@@ -58,6 +58,7 @@ text = "Gary"
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="GunGun" parent="." instance=ExtResource("3_i3pqv")]
+unique_name_in_owner = true
 position = Vector2(-1, -51)
 rotation = 0.0
 

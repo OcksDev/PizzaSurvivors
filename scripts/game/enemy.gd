@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var player = get_node("/root/Game/PlayerLol")
-var health = 3;
+var health = 15;
 func _physics_process(delta):
 	if(player != null):
 		var dir = global_position.direction_to(player.global_position);
@@ -10,8 +10,8 @@ func _physics_process(delta):
 func _ready() -> void:
 	%Slime.play_walk();
 	
-func take_damage():
-	health -= 1;
+func take_damage(amount):
+	health -= amount;
 	%Slime.play_hurt();
 	if (health <= 0):
 		queue_free(); 

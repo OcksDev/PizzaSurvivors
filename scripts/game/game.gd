@@ -82,7 +82,7 @@ func spawn_mob():
 
 func startwave(wave):
 	current_wave = wave;
-	enemies_for_wave = 5 + (3*wave);
+	enemies_for_wave = 9 + (3*wave);
 	%SubTimer.wait_time = (0.9 / ((0.15 * wave) + 1)) + 0.1;
 	%SubTimer.start();
 	%CurrentWaveDisplay.text = "Current Wave: " + str(current_wave+1);
