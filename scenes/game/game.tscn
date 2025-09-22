@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=12 format=4 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="5_5i0tg"]
 [ext_resource type="Script" uid="uid://cxeb5otsj7hmg" path="res://scripts/menu/to_game.gd" id="5_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://b8p0p4gerasua" path="res://scenes/game/item_menu.tscn" id="8_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cpertf7cshbed" path="res://world_assets/generic_tile.png" id="8_87uf6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bdhmt"]
@@ -173,6 +174,9 @@ tile_map_data = PackedByteArray("AAD5//r/AAAAAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAA
 tile_set = SubResource("TileSet_4j704")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemMenu" parent="CanvasLayer" instance=ExtResource("8_2a8rs")]
+unique_name_in_owner = true
 
 [node name="CurrentWaveDisplay" type="RichTextLabel" parent="CanvasLayer"]
 unique_name_in_owner = true

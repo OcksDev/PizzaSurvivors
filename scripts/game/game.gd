@@ -70,7 +70,7 @@ func _ready() -> void:
 		saltshaker_locations.append(Vector2(MIN_X + (i * ((MAX_X - MIN_X) / NUM_SALTSHAKERS)), randi_range(MIN_Y, MAX_Y)))
 	for saltshaker_location in saltshaker_locations:
 		spawn_saltshaker(saltshaker_location)
-		
+	%ItemMenu.visible = false;
 	startwave(0)
 
 
@@ -82,7 +82,7 @@ func spawn_mob():
 
 func startwave(wave):
 	current_wave = wave;
-	enemies_for_wave = 9 + (3*wave);
+	enemies_for_wave = 1 + (3*wave);
 	%SubTimer.wait_time = (0.9 / ((0.15 * wave) + 1)) + 0.1;
 	%SubTimer.start();
 	%CurrentWaveDisplay.text = "Current Wave: " + str(current_wave+1);
@@ -91,6 +91,16 @@ func startwave(wave):
 	for i in range(min(wave * KETCHUP_SPAWN_RATE, MAX_KETCHUP_SPAWN_PER_WAVE)):
 		spawn_ketchup()
 
+func show_items():
+	print(self)
+	%ItemMenu.visible = true
+	%ItemMenu.set_random_items(player.item_titles, player.item_descs, self)
+	
+func select_item(item):
+	%ItemMenu.visible = false;
+	player.items[item] += 1;
+	player.update_player_stats()
+	startwave(current_wave + 1);
 
 func _on_timer_timeout() -> void:
 	spawn_mob();
@@ -107,4 +117,4 @@ func _on_player_lol_died_lol() -> void:
 
 
 func _on_wave_timer_timeout() -> void:
-	startwave(current_wave + 1);
+	show_items();

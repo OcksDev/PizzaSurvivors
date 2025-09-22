@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8p0p4gerasua"]
+
+[ext_resource type="Script" uid="uid://ttj0e8ctikia" path="res://scripts/game/item_menu.gd" id="1_4n0vg"]
+[ext_resource type="PackedScene" uid="uid://blgiyw5d8awkq" path="res://scenes/game/item_selector.tscn" id="1_fipdf"]
+
+[node name="ItemMenu" type="ColorRect" node_paths=PackedStringArray("item1", "item2", "item3")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.494118)
+script = ExtResource("1_4n0vg")
+item1 = NodePath("ItemSelector")
+item2 = NodePath("ItemSelector2")
+item3 = NodePath("ItemSelector3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -510.0
+offset_right = 291.0
+offset_bottom = -408.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 52
+text = "Pick One..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemSelector" parent="." instance=ExtResource("1_fipdf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 757.0
+offset_top = 184.0
+offset_right = 1163.0
+offset_bottom = 896.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ItemSelector2" parent="." instance=ExtResource("1_fipdf")]
+layout_mode = 1
+offset_left = -703.0
+offset_right = -297.0
+
+[node name="ItemSelector3" parent="." instance=ExtResource("1_fipdf")]
+layout_mode = 1
+offset_left = 297.0
+offset_right = 703.0
