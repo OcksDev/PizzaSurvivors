@@ -25,7 +25,7 @@ const KETCHUP = preload("res://scenes/game/ketchup.tscn")
 const KETCHUP_MIN_SIZE = 1
 const KETCHUP_MAX_SIZE = 5
 const KETCHUP_SPAWN_RATE = 1 # Integer value; 2 will spawn 2 ketchup at wave 1, 4 at wave 2, etc
-const MAX_KETCHUP_SPAWN_PER_WAVE = 20
+const MAX_KETCHUP_SPAWN_PER_WAVE = 8
 
 var enemies_for_wave = -1
 var current_wave = -1
