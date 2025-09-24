@@ -137,7 +137,7 @@ one_way_collision = true
 [node name="VisibleBorder" type="Node" parent="World"]
 
 [node name="Top" type="ColorRect" parent="World/VisibleBorder"]
-z_index = -5
+z_index = -10
 offset_left = -7000.0
 offset_top = -6000.0
 offset_right = 7000.0
@@ -145,7 +145,7 @@ offset_bottom = -5000.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="Left" type="ColorRect" parent="World/VisibleBorder"]
-z_index = -5
+z_index = -10
 offset_left = -7000.0
 offset_top = -5000.0
 offset_right = -5000.0
@@ -153,7 +153,7 @@ offset_bottom = 5000.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="Right" type="ColorRect" parent="World/VisibleBorder"]
-z_index = -5
+z_index = -10
 offset_left = 5000.0
 offset_top = -5000.0
 offset_right = 7000.0
@@ -161,7 +161,7 @@ offset_bottom = 5000.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="Bottom" type="ColorRect" parent="World/VisibleBorder"]
-z_index = -5
+z_index = -10
 offset_left = -7000.0
 offset_top = 5000.0
 offset_right = 7000.0

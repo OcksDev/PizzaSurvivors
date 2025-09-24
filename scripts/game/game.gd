@@ -1,7 +1,9 @@
 extends Node2D
 	
 @export var player : Node2D;
-@export var nerd_scene : Resource
+
+@export var melee_enemy : Resource
+@export var ranged_enemy : Resource
 
 const STARTING_MUSIC = "res://audio/Food.mp3"
 
@@ -25,8 +27,11 @@ const KETCHUP_MAX_SIZE = 5
 const KETCHUP_SPAWN_RATE = 1 # Integer value; 2 will spawn 2 ketchup at wave 1, 4 at wave 2, etc
 const MAX_KETCHUP_SPAWN_PER_WAVE = 20
 
-var enemies_for_wave = -1;
-var current_wave = -1;
+var enemies_for_wave = -1
+var current_wave = -1
+
+
+### Map generation:
 
 func spawn_bottlecap():
 	var bottlecap_instance = BOTTLECAP.instantiate()
@@ -55,6 +60,8 @@ func spawn_saltshaker(saltshaker_location):
 	saltshaker_instance.position = Vector2(saltshaker_location)
 	add_child(saltshaker_instance)
 
+### Ready:
+
 func _ready() -> void:
 	# If the music player is not playing or if the music playing is not the starting music, play the starting game music
 	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != STARTING_MUSIC:
@@ -73,9 +80,15 @@ func _ready() -> void:
 	%ItemMenu.visible = false;
 	startwave(0)
 
+### Enemy spawning:
 
 func spawn_mob():
-	var mob = nerd_scene.instantiate();
+	var mob
+	if randf() < min(current_wave / 10.0, 0.5):
+		mob = ranged_enemy.instantiate();
+	else:
+		mob = melee_enemy.instantiate();
+		
 	%PlayerLol._path().progress_ratio = randf();
 	add_child(mob);
 	mob.global_position = %PlayerLol._path().global_position;
@@ -91,8 +104,9 @@ func startwave(wave):
 	for i in range(min(wave * KETCHUP_SPAWN_RATE, MAX_KETCHUP_SPAWN_PER_WAVE)):
 		spawn_ketchup()
 
+### Upgrade management:
+
 func show_items():
-	print(self)
 	%ItemMenu.visible = true
 	%ItemMenu.set_random_items(player.item_titles, player.item_descs, self)
 	
@@ -102,6 +116,8 @@ func select_item(item):
 	player.update_player_stats()
 	startwave(current_wave + 1);
 
+### Misc. events:
+
 func _on_timer_timeout() -> void:
 	spawn_mob();
 	enemies_for_wave -= 1;
@@ -110,11 +126,9 @@ func _on_timer_timeout() -> void:
 	else:
 		%WaveTimer.start();
 
-
 func _on_player_lol_died_lol() -> void:
 	%DeadMenu.visible = true;
 	get_tree().paused = true;
-
 
 func _on_wave_timer_timeout() -> void:
 	show_items();

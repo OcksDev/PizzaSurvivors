@@ -5,11 +5,15 @@ extends Marker2D
 var shoots = false;
 var damage = 0;
 
+func get_distance(node: Node):
+	return global_position.distance_to(node.global_position)
+
 func _physics_process(delta):
 	var enems = $Area2D.get_overlapping_bodies();
 	shoots = enems.size() > 0;
 	if enems.size() > 0:
-		look_at(enems[0].global_position);
+		var dists = enems.map(get_distance)
+		look_at(enems[dists.find(dists.min())].global_position);
 	
 func shoot():
 	if(!shoots):
