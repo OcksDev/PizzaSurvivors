@@ -78,13 +78,13 @@ func _ready() -> void:
 	for saltshaker_location in saltshaker_locations:
 		spawn_saltshaker(saltshaker_location)
 	%ItemMenu.visible = false;
-	startwave(30)
+	startwave(0)
 
 ### Enemy spawning:
 
 func spawn_mob():
 	var mob
-	if randf() < min(current_wave / 10.0, 0.5) or true:
+	if randf() < min(current_wave / 10.0, 0.5):
 		mob = ranged_enemy.instantiate();
 	else:
 		mob = melee_enemy.instantiate();
