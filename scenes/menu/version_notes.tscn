@@ -27,6 +27,9 @@ text = "                  -- v0.0.3: --
 - Added saltshaker obstacles to world
 - Added bottlecap obstacles to world, which can be interacted with
 - Ketchup spawns in as waves are defeated, letting you feel the blood of victory
+- Menu to select items between waves created
+- 4 items added for the item selection menu
+- New ranged enemy type
 
                   -- v0.0.2: --
 - Enemies now spawn in waves
