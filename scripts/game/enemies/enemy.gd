@@ -1,6 +1,8 @@
 extends CharacterBody2D
+
 @onready var player = get_node("/root/Game/PlayerLol")
 var health = 15;
+
 func _physics_process(delta):
 	if(player != null):
 		var dir = global_position.direction_to(player.global_position);
@@ -19,4 +21,3 @@ func take_damage(amount):
 		var s = c.instantiate();
 		get_parent().add_child(s);
 		s.global_position = global_position;
-	

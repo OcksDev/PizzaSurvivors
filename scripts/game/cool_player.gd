@@ -55,12 +55,19 @@ func _physics_process(delta):
 	
 	var overlaps = %ScareBox.get_overlapping_bodies();
 	if(overlaps.size() > 0):
-		health -= dr * overlaps.size() * delta;
-		if(health <= 0):
-			#dqueue_free();
-			died_lol.emit();
-	%ProgressBar.max_value = max_health;
-	%ProgressBar.value = health;
+		take_damage(dr * overlaps.size() * delta)
+	refresh_health_bar()
+
+func refresh_health_bar():
+	%ProgressBar.max_value = max_health
+	%ProgressBar.value = health
+
+func take_damage(amount):
+	health -= 0.1 # Overrides the amount of damage.
+	if(health <= 0):
+		died_lol.emit()
+	refresh_health_bar()
+	
 	
 var has_already = false
 func update_player_stats():

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://2jvr37tkaxc0"]
+
+[ext_resource type="Script" uid="uid://70uwgvp5kqrm" path="res://scripts/game/enemies/ranged.gd" id="1_861pp"]
+[ext_resource type="PackedScene" uid="uid://cr6icoabixoml" path="res://characters/ranged/ranged.tscn" id="1_ndhaa"]
+[ext_resource type="PackedScene" uid="uid://m6gsfmebxmlx" path="res://scenes/game/enemies/ranged_bullet.tscn" id="2_ues50"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_861pp"]
+radius = 26.0192
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 10
+script = ExtResource("1_861pp")
+bullet_scene = ExtResource("2_ues50")
+
+[node name="Ranged" parent="." instance=ExtResource("1_ndhaa")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_861pp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
