@@ -12,6 +12,7 @@ script/source = "extends CollisionShape2D
 
 [node name="Nerd" type="CharacterBody2D"]
 collision_layer = 10
+collision_mask = 9
 platform_floor_layers = 4294901760
 script = ExtResource("1_matxw")
 

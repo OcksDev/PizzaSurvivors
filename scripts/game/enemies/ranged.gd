@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var health = 15;
 var MIN_DISTANCE = 400
-var personal_rng = randf() * 100 - 50
+var personal_rng = randf() * 500 - 250
 var was_rotating = false
 
 func create_bullet():
@@ -21,7 +21,7 @@ func _physics_process(delta):
 		var dir = global_position.direction_to(player.global_position)
 		var dist = global_position.distance_to(player.global_position)
 		
-		var effective_min_distance = MIN_DISTANCE# + personal_rng * sin(time)
+		var effective_min_distance = MIN_DISTANCE + personal_rng
 		
 		if abs(dist - effective_min_distance) < 10 + int(was_rotating) * 10:
 			velocity = dir * dist;

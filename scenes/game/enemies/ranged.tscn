@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cr6icoabixoml" path="res://characters/ranged/ranged.tscn" id="1_ndhaa"]
 [ext_resource type="PackedScene" uid="uid://m6gsfmebxmlx" path="res://scenes/game/enemies/ranged_bullet.tscn" id="2_ues50"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_861pp"]
-radius = 26.0192
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ues50"]
+radius = 38.0
+height = 118.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 10
@@ -16,8 +17,8 @@ bullet_scene = ExtResource("2_ues50")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_861pp")
+position = Vector2(0, -17)
+shape = SubResource("CapsuleShape2D_ues50")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
