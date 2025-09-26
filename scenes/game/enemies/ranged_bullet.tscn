@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://m6gsfmebxmlx"]
 
 [ext_resource type="Script" uid="uid://bvkm67tymq1q5" path="res://scripts/game/bullet.gd" id="1_mx2j8"]
-[ext_resource type="Texture2D" uid="uid://cgfdngcqxh1wl" path="res://characters/ranged/projectile/mustard projectile 1.png" id="2_mx2j8"]
+[ext_resource type="Texture2D" uid="uid://cxhulgi6ocoab" path="res://characters/ranged/projectile/mustard projectile 1.png" id="2_mx2j8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_81ya6"]
 radius = 13.1529

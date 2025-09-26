@@ -47,6 +47,9 @@ func spawn_ketchup():
 	# Spawn it just outside of view
 	%PlayerLol._path().progress_ratio = randf();
 	ketchup_instance.global_position = %PlayerLol._path().global_position;
+	# Connect is to player so player can get signals from it
+	ketchup_instance.connect("ketchup_entered", Callable(player, "_on_ketchup_entered"))
+	ketchup_instance.connect("ketchup_exited", Callable(player, "_on_ketchup_exited"))
 	
 func spawn_saltshaker(saltshaker_location):
 	var saltshaker_instance
@@ -77,6 +80,7 @@ func _ready() -> void:
 		saltshaker_locations.append(Vector2(MIN_X + (i * ((MAX_X - MIN_X) / NUM_SALTSHAKERS)), randi_range(MIN_Y, MAX_Y)))
 	for saltshaker_location in saltshaker_locations:
 		spawn_saltshaker(saltshaker_location)
+	
 	%ItemMenu.visible = false;
 	startwave(0)
 

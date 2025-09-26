@@ -32,13 +32,21 @@ var max_health = -69.0;
 var old_max_health = -69.0; 
 var speed = -69.0; 
 
+# player interaction with ketchup
+var ketchups_in = 0; # number of ketchup objects the player is currently stepping on
+var ketchup_slowdown = 0.6; # multiplier for velocity when player is walking through ketchup
+
+
 
 func _ready():
 	update_player_stats()
 
 func _physics_process(delta):
+	var velocity_mod = 1.0
+	if ketchups_in >= 1:
+		velocity_mod = ketchup_slowdown
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
-	velocity = dir * 600 * speed
+	velocity = dir * 600 * speed * velocity_mod
 	
 	if (dir.x > 0):
 		%PlayerVisual.scale.x = 1;
@@ -100,3 +108,12 @@ func update_player_stats():
 
 func _path():
 	return %PathFollow2D;
+
+
+
+### Stepping in and out of ketchup
+func _on_ketchup_entered():
+	ketchups_in += 1
+	
+func _on_ketchup_exited():
+	ketchups_in -= 1
