@@ -1,8 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpjqvkj1kr5fo"]
+[gd_scene load_steps=14 format=3 uid="uid://bpjqvkj1kr5fo"]
 
-[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://hhxdnhwgp4gf" path="res://scripts/game/cool_player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://b16vokbr6farg" path="res://characters/player/Pizza Character idle frame 1.png" id="2_t8yk2"]
 [ext_resource type="PackedScene" uid="uid://tef0f04sfj0e" path="res://scenes/game/gun_gun.tscn" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://ddmi6pjk5yk8b" path="res://characters/player/Pizza Character idle frame 2.png" id="3_m5ugi"]
+[ext_resource type="Texture2D" uid="uid://3lm7nsao7lsw" path="res://characters/player/Pizza Character walking frame 1.png" id="4_3vq1g"]
+[ext_resource type="Texture2D" uid="uid://dhag2mmqtlook" path="res://characters/player/Pizza Character walking frame 2.png" id="5_bnwh7"]
+[ext_resource type="Texture2D" uid="uid://7b70a2s5sfn1" path="res://characters/player/Pizza Character walking frame 3.png" id="6_dsw4c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eoyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t8yk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m5ugi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3vq1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bnwh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dsw4c")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 42.0
@@ -34,8 +66,13 @@ script = ExtResource("1_onrkg")
 [node name="PlayerVisual" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="HappyBoo" parent="PlayerVisual" instance=ExtResource("1_4flbx")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerVisual"]
 unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -33)
+scale = Vector2(2.64, 2.64)
+sprite_frames = SubResource("SpriteFrames_0eoyi")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
@@ -79,6 +116,7 @@ debug_color = Color(0.507217, 0.458961, 0.912437, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -51.0
 offset_top = 21.0
 offset_right = 52.0

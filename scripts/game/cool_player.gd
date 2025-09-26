@@ -54,11 +54,12 @@ func _physics_process(delta):
 		%PlayerVisual.scale.x = -1;
 	
 	move_and_slide()
-	var a = %HappyBoo
 	if velocity.length() > 0:
-		a.play_walk_animation()
+		%AnimatedSprite2D.play("run")
+		%AnimatedSprite2D.speed_scale = 2.5 * speed;
 	else:
-		a.play_idle_animation()
+		%AnimatedSprite2D.play("idle")
+		%AnimatedSprite2D.speed_scale = 1;
 	var dr = 3;
 	
 	var overlaps = %ScareBox.get_overlapping_bodies();
@@ -100,6 +101,8 @@ func update_player_stats():
 	
 	damage *= 1 + (0.1 * items["damage_increase"])
 	%GunGun.set_damage(damage)
+	
+	items["move_speed_increase"] = 20
 	
 	speed *= 1 + (0.1 * items["move_speed_increase"])
 	
