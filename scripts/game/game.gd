@@ -51,8 +51,6 @@ func spawn_ketchup():
 	%PlayerLol._path().progress_ratio = randf();
 	# the second half of this moves the spawn distance from the player by a random offset between 200 and 700
 	ketchup_instance.global_position = %PlayerLol._path().global_position + randi_range(200, 700) * (%PlayerLol._path().global_position - global_position).normalized(); 
-	print( %PlayerLol._path().global_position)
-	print( %PlayerLol._path().global_position + 200 * (global_position - %PlayerLol._path().global_position).normalized())
 	
 	# Connect is to player so player can get signals from it
 	ketchup_instance.connect("ketchup_entered", Callable(player, "_on_ketchup_entered"))
