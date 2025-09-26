@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=14 format=4 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://xxfc5ha2onxg" path="res://scenes/game/enemies/nerd.tscn" id="2_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://2jvr37tkaxc0" path="res://scenes/game/enemies/ranged.tscn" id="3_2a8rs"]
+[ext_resource type="PackedScene" uid="uid://bqibghathttcv" path="res://scenes/game/enemies/boss.tscn" id="4_4j704"]
 [ext_resource type="AudioStream" uid="uid://dyvhpmnn3xsxb" path="res://audio/prowler-sound-effect_6bXErot.wav" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="5_5i0tg"]
 [ext_resource type="Script" uid="uid://cxeb5otsj7hmg" path="res://scripts/menu/to_game.gd" id="5_bdhmt"]
@@ -27,6 +28,7 @@ script = ExtResource("1_fc0e3")
 player = NodePath("PlayerLol")
 melee_enemy = ExtResource("2_lfrn8")
 ranged_enemy = ExtResource("3_2a8rs")
+boss_enemy = ExtResource("4_4j704")
 
 [node name="PlayerLol" parent="." instance=ExtResource("1_e2o6t")]
 unique_name_in_owner = true

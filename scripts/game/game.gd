@@ -4,6 +4,7 @@ extends Node2D
 
 @export var melee_enemy : Resource
 @export var ranged_enemy : Resource
+@export var boss_enemy : Resource
 
 const STARTING_MUSIC = "res://audio/Food.mp3"
 
@@ -29,6 +30,7 @@ const MAX_KETCHUP_SPAWN_PER_WAVE = 8
 
 var enemies_for_wave = -1
 var current_wave = -1
+var max_wave_enemies = -1
 
 
 ### Map generation:
@@ -84,7 +86,18 @@ func _ready() -> void:
 
 func spawn_mob():
 	var mob
-	if randf() < min(current_wave / 10.0, 0.5):
+	
+	var current_enemy = (enemies_for_wave / (current_wave * 3 + 1.0))
+	var previous_enemy = ((enemies_for_wave + 1) / (current_wave * 3 + 1.0))
+	var boss_threshold = 1 / ((current_wave + 1) / 5.0 + 1.0)
+	
+	if ((current_wave + 1)  % 5 == 0) \
+	  and (int(previous_enemy / boss_threshold) > int(current_enemy / boss_threshold)) \
+	  and (max_wave_enemies - enemies_for_wave != 1):
+		# Wave 5 is 1 boss enemy (at enemies/max = 0.5)
+		# Wave 10 is 2 boss enemies (at enemies/max = 0.33 or 0.66)
+		mob = boss_enemy.instantiate();
+	elif randf() < min(current_wave / 10.0, 0.5):
 		mob = ranged_enemy.instantiate();
 	else:
 		mob = melee_enemy.instantiate();
@@ -95,7 +108,8 @@ func spawn_mob():
 
 func startwave(wave):
 	current_wave = wave;
-	enemies_for_wave = 1 + (3*wave);
+	max_wave_enemies = 1 + (3 * wave)
+	enemies_for_wave = max_wave_enemies
 	%SubTimer.wait_time = (0.9 / ((0.15 * wave) + 1)) + 0.1;
 	%SubTimer.start();
 	%CurrentWaveDisplay.text = "Current Wave: " + str(current_wave+1);
