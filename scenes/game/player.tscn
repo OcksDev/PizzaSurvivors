@@ -69,7 +69,7 @@ unique_name_in_owner = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerVisual"]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(0, -33)
+position = Vector2(0, -31)
 scale = Vector2(2.64, 2.64)
 sprite_frames = SubResource("SpriteFrames_0eoyi")
 animation = &"run"

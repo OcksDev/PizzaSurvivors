@@ -6,22 +6,26 @@ var items = {
 	"damage_increase":0,
 	"attack_speed_increase":0,
 	"move_speed_increase":0,
-	#"bullet_amount_increase":0,
 	"max_health_increase":0,
+	"bullet_amount_increase":0,
+	"bullet_speed_increase":0,
+	#"range_increase":0,
 };
 var item_titles = {
-	"damage_increase":"Extra Sauce",
+	"damage_increase":"Thicker Sauce",
 	"attack_speed_increase":"Faster Serving",
 	"move_speed_increase":"Swifter Feet",
-	#"bullet_amount_increase":"M Increase",
-	"max_health_increase":"Stronger Cheese",
+	"max_health_increase":"Bigger Crust",
+	"bullet_amount_increase":"Extra Cheese",
+	"bullet_speed_increase":"Greasier Oil",
 };
 var item_descs = {
 	"damage_increase":"+10% Damage",
 	"attack_speed_increase":"+10% Attack Speed",
 	"move_speed_increase":"+10% Movement Speed",
-	#"bullet_amount_increase":"M Increase",
 	"max_health_increase":"+25% Max Health",
+	"bullet_amount_increase":"+10% chance to shoot an Extra Bullet in a Random Direction",
+	"bullet_speed_increase":"+20% Bullet Speed",
 };
 	
 	
@@ -31,6 +35,8 @@ var damage = -69.0;
 var max_health = -69.0; 
 var old_max_health = -69.0; 
 var speed = -69.0; 
+var new_bullet_chance = -69.0; 
+var bullet_speed = -69.0; 
 
 # player interaction with ketchup
 var ketchups_in = 0; # number of ketchup objects the player is currently stepping on
@@ -85,6 +91,13 @@ func update_player_stats():
 	var attack_time = 0.2 #seconds
 	damage = 5
 	speed = 1;
+	bullet_speed = 1;
+	new_bullet_chance = 0;
+	
+	# debug item giving
+	#items["bullet_amount_increase"] = 10
+	
+	
 	
 	max_health *= 1 + (0.25 * items["max_health_increase"])
 	
@@ -102,9 +115,14 @@ func update_player_stats():
 	damage *= 1 + (0.1 * items["damage_increase"])
 	%GunGun.set_damage(damage)
 	
-	items["move_speed_increase"] = 20
 	
 	speed *= 1 + (0.1 * items["move_speed_increase"])
+	
+	new_bullet_chance = (0.1 * items["bullet_amount_increase"])
+	%GunGun.set_cc(new_bullet_chance)
+	
+	bullet_speed *= 1 + (0.2 * items["bullet_speed_increase"])
+	%GunGun.set_spd(bullet_speed)
 	
 	has_already = true
 	
