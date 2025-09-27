@@ -20,14 +20,25 @@ var item_titles = {
 	"bullet_speed_increase":"Greasier Oil",
 };
 var item_descs = {
-	"damage_increase":"+10% Damage",
+	"damage_increase":"+15% Damage",
 	"attack_speed_increase":"+10% Attack Speed",
 	"move_speed_increase":"+10% Movement Speed",
 	"max_health_increase":"+25% Max Health",
-	"bullet_amount_increase":"+10% chance to shoot an Extra Bullet in a Random Direction",
+	"bullet_amount_increase":"+25% chance to shoot an Extra Bullet in a Random Direction",
 	"bullet_speed_increase":"+20% Bullet Speed",
 };
-	
+var item_imgs = {
+	# 0 = damage
+	# 1 = utility
+	# 2 = healing
+	"damage_increase":0,
+	"attack_speed_increase":0,
+	"move_speed_increase":1,
+	"max_health_increase":1,
+	"bullet_amount_increase":0,
+	"bullet_speed_increase":1,
+	#"range_increase":0,
+};
 	
 # changing these values does nothing, go to update_player_stats()
 var health = -69.0; 
@@ -112,13 +123,13 @@ func update_player_stats():
 	attack_time /= 1 + (0.1 * items["attack_speed_increase"])
 	%GunGun.set_timer_duration(attack_time)
 	
-	damage *= 1 + (0.1 * items["damage_increase"])
+	damage *= 1 + (0.15 * items["damage_increase"])
 	%GunGun.set_damage(damage)
 	
 	
 	speed *= 1 + (0.1 * items["move_speed_increase"])
 	
-	new_bullet_chance = (0.1 * items["bullet_amount_increase"])
+	new_bullet_chance = (0.25 * items["bullet_amount_increase"])
 	%GunGun.set_cc(new_bullet_chance)
 	
 	bullet_speed *= 1 + (0.2 * items["bullet_speed_increase"])
