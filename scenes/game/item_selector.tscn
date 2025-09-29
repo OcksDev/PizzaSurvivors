@@ -22,7 +22,7 @@ script = ExtResource("1_5fytk")
 title = NodePath("RichTextLabel")
 desc = NodePath("RichTextLabel2")
 imgd = NodePath("SlimeBody")
-imgs = [ExtResource("2_mdw34"), ExtResource("3_8ptmy"), ExtResource("4_36rrv")]
+imgs = Array[Texture2D]([ExtResource("2_mdw34"), ExtResource("3_8ptmy"), ExtResource("4_36rrv")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
