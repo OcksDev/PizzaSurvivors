@@ -37,6 +37,16 @@ var start_time = 0
 
 ### Map generation:
 
+func get_random_position_from_player(min_distance: float, max_distance: float) -> Vector2:
+	# Choose a random angle in radians (0 to 2π)
+	var angle = randf_range(0.0, TAU)
+	# Choose a random distance between min and max
+	var distance = randf_range(min_distance, max_distance)
+	# Calculate offset using polar coordinates
+	var offset = Vector2(cos(angle), sin(angle)) * distance
+	# Return new global position
+	return $PlayerLol.global_position + offset
+
 func spawn_bottlecap():
 	var bottlecap_instance = BOTTLECAP.instantiate()
 	add_child(bottlecap_instance)
@@ -50,9 +60,7 @@ func spawn_ketchup():
 	ketchup_instance.scale = Vector2(ketchup_scale, ketchup_scale)
 	
 	# Spawn it just outside of view
-	%PlayerLol._path().progress_ratio = randf();
-	# the second half of this moves the spawn distance from the player by a random offset between 200 and 700
-	ketchup_instance.global_position = %PlayerLol._path().global_position + randi_range(200, 700) * (%PlayerLol._path().global_position - global_position).normalized(); 
+	ketchup_instance.global_position = get_random_position_from_player(1500, 2200)
 	
 	# Connect is to player so player can get signals from it
 	ketchup_instance.connect("ketchup_entered", Callable(player, "_on_ketchup_entered"))
