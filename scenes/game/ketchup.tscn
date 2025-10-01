@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6aexlsjnqygl"]
 
-[ext_resource type="Texture2D" uid="uid://dq2xctu50m1ef" path="res://world_assets/ketchup.png" id="1_b7bow"]
+[ext_resource type="Texture2D" uid="uid://b2anghakdsp1h" path="res://world_assets/ketchup.png" id="1_b7bow"]
 [ext_resource type="Script" uid="uid://85lui8v5f04l" path="res://scripts/game/ketchup.gd" id="2_lpgft"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7bow"]

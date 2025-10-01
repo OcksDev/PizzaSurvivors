@@ -7,6 +7,7 @@ extends Node2D
 @export var boss_enemy : Resource
 
 const STARTING_MUSIC = "res://audio/Food.mp3"
+const GAMEOVER_MUSIC = "res://audio/Im not Dead.mp3"
 
 # Constants for spawning world objects
 const MIN_X = -4900
@@ -153,6 +154,11 @@ func _on_timer_timeout() -> void:
 		%WaveTimer.start();
 
 func _on_player_lol_died_lol() -> void:
+	# If the music player is not playing or if the music playing is not the game over music, play the starting game music
+	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != GAMEOVER_MUSIC:
+		MusicPlayer.stream = preload(GAMEOVER_MUSIC)
+		MusicPlayer.play()
+		
 	var end_time = Time.get_unix_time_from_system()
 	%StatsText.text = "Stats:" + \
 					"\nYou survived for " + str(round((end_time-start_time) * 100) / 100) + " seconds!" + \

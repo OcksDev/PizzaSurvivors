@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cudknqht8k6e"]
 
-[ext_resource type="Texture2D" uid="uid://csgkpf44js3bn" path="res://world_assets/salt shaka.png" id="1_dl3vv"]
+[ext_resource type="Texture2D" uid="uid://cgiyinpiiyw44" path="res://world_assets/salt shaka.png" id="1_dl3vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j704"]
 

@@ -18,11 +18,13 @@ func _on_start_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
+	MenuPageChangeSound.play();
 	get_tree().change_scene_to_packed(credits_scene);
 	pass # Replace with function body.
 
 
 func _on_changelog_pressed() -> void:
+	MenuPageChangeSound.play();
 	get_tree().change_scene_to_packed(changelog_scene);
 	pass # Replace with function body.
 
