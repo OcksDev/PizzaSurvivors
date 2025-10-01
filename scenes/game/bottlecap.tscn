@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://deb1rcxnplilq"]
 
-[ext_resource type="Script" path="res://scripts/game/bottlecap.gd" id="1_gnw27"]
-[ext_resource type="Texture2D" uid="uid://dw7tx7lnyhy8g" path="res://world_assets/bottle cap.png" id="2_s520h"]
+[ext_resource type="Script" uid="uid://c8eo6opadd5wa" path="res://scripts/game/bottlecap.gd" id="1_gnw27"]
+[ext_resource type="Texture2D" uid="uid://cghg78kcjpcgk" path="res://world_assets/bottle cap.png" id="2_s520h"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87uf6"]
 friction = 0.0
@@ -17,7 +17,7 @@ height = 54.0
 [node name="Bottlecap" type="RigidBody2D"]
 z_as_relative = false
 y_sort_enabled = true
-collision_layer = 9
+collision_layer = 41
 collision_mask = 8
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_87uf6")

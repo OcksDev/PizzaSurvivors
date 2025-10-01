@@ -16,12 +16,13 @@ collision_mask = 9
 platform_floor_layers = 4294901760
 script = ExtResource("1_matxw")
 
-[node name="Slime" parent="." instance=ExtResource("2_nurbv")]
-unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(-1, 25)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -9)
 shape = SubResource("CircleShape2D_ode1r")
 script = SubResource("GDScript_80wjy")
+
+[node name="Slime" parent="." instance=ExtResource("2_nurbv")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(4, 9)
+scale = Vector2(2, 2)

@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2nbjs4ubm3nv"]
 
-[ext_resource type="Texture2D" uid="uid://cgiyinpiiyw44" path="res://world_assets/salt shaka.png" id="1_f2ciu"]
+[ext_resource type="Texture2D" uid="uid://csgkpf44js3bn" path="res://world_assets/salt shaka.png" id="1_f2ciu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j704"]
 
 [node name="SaltShakerRight" type="StaticBody2D"]
+collision_layer = 33
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
