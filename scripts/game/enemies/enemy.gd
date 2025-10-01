@@ -16,6 +16,7 @@ func take_damage(amount):
 	health -= amount;
 	%Slime.play_hurt();
 	if (health <= 0):
+		Stats.enemies_killed += 1
 		queue_free(); 
 		var c = preload("res://smoke_explosion/smoke_explosion.tscn");
 		var s = c.instantiate();

@@ -32,6 +32,7 @@ var enemies_for_wave = -1
 var current_wave = -1
 var max_wave_enemies = -1
 
+var start_time = 0
 
 ### Map generation:
 
@@ -88,6 +89,10 @@ func _ready() -> void:
 	
 	%ItemMenu.visible = false;
 	startwave(0)
+	
+	start_time = Time.get_unix_time_from_system()
+	Stats.bullets_shot = 0
+	Stats.enemies_killed = 0
 
 ### Enemy spawning:
 
@@ -148,6 +153,11 @@ func _on_timer_timeout() -> void:
 		%WaveTimer.start();
 
 func _on_player_lol_died_lol() -> void:
+	var end_time = Time.get_unix_time_from_system()
+	%StatsText.text = "Stats:" + \
+					"\nYou survived for " + str(round((end_time-start_time) * 100) / 100) + " seconds!" + \
+					"\nYou shot " + str(Stats.bullets_shot) + " bullets." + \
+					"\nYou killed " + str(Stats.enemies_killed) + " enemies."
 	%DeadMenu.visible = true;
 	get_tree().paused = true;
 

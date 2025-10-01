@@ -47,6 +47,7 @@ func take_damage(amount):
 	health -= amount;
 	# %Ranged.play_hurt(); # Does not exist yet.
 	if (health <= 0):
+		Stats.enemies_killed += 1
 		queue_free(); 
 		var c = preload("res://smoke_explosion/smoke_explosion.tscn");
 		var s = c.instantiate();

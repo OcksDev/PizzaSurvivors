@@ -75,10 +75,10 @@ anchor_left = 0.5
 anchor_top = 0.644
 anchor_right = 0.5
 anchor_bottom = 0.644
-offset_left = -223.5
-offset_top = -89.5201
-offset_right = 223.5
-offset_bottom = 76.4799
+offset_left = -551.0
+offset_top = 181.48
+offset_right = -104.0
+offset_bottom = 347.48
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 116
@@ -91,15 +91,24 @@ anchor_left = 0.5
 anchor_top = 0.644
 anchor_right = 0.5
 anchor_bottom = 0.644
-offset_left = -319.5
-offset_top = 114.48
-offset_right = 319.5
-offset_bottom = 280.48
+offset_left = -21.5
+offset_top = 181.48
+offset_right = 617.5
+offset_bottom = 347.48
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 116
 text = "Main Menu"
 script = ExtResource("5_5i0tg")
+
+[node name="StatsText" type="RichTextLabel" parent="DeadMenu"]
+unique_name_in_owner = true
+offset_left = 525.0
+offset_top = 549.0
+offset_right = 1407.0
+offset_bottom = 859.0
+theme_override_font_sizes/normal_font_size = 46
+text = "Stats:"
 
 [node name="GameStartSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

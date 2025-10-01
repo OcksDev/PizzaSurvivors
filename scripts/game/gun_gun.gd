@@ -29,6 +29,7 @@ func shoot():
 	
 	
 func real_shoot(rot):
+	Stats.bullets_shot += 1
 	var b = bullet_scene # preload(bullet_scene);
 	var new_b = b.instantiate();
 	%ShootyShootyBangBang.add_child(new_b);
