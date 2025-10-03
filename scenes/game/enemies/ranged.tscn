@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://2jvr37tkaxc0"]
+[gd_scene load_steps=10 format=3 uid="uid://2jvr37tkaxc0"]
 
 [ext_resource type="Script" uid="uid://70uwgvp5kqrm" path="res://scripts/game/enemies/ranged.gd" id="1_861pp"]
-[ext_resource type="PackedScene" uid="uid://cr6icoabixoml" path="res://characters/ranged/ranged.tscn" id="1_ndhaa"]
 [ext_resource type="PackedScene" uid="uid://m6gsfmebxmlx" path="res://scenes/game/enemies/ranged_bullet.tscn" id="2_ues50"]
-[ext_resource type="Texture2D" uid="uid://bkwaideifn4k" path="res://characters/ranged/attack/mustard enemy attack 1.png" id="3_k64df"]
-[ext_resource type="Texture2D" uid="uid://cyo5avl28m85w" path="res://characters/ranged/walking/walk_1.png" id="3_nlkqw"]
-[ext_resource type="Texture2D" uid="uid://5at22g1mlee3" path="res://characters/ranged/walking/walk_2.png" id="4_bqiwi"]
-[ext_resource type="Texture2D" uid="uid://bit1vi0fpxeya" path="res://characters/ranged/attack/mustard enemy attack 2.png" id="4_sbufd"]
-[ext_resource type="Texture2D" uid="uid://bx7x1vul4e7rf" path="res://characters/ranged/attack/mustard enemy attack 3.png" id="5_jowr0"]
+[ext_resource type="Texture2D" uid="uid://dhvrhsvuie373" path="res://characters/ranged/attack/mustard enemy attack 1.png" id="3_k64df"]
+[ext_resource type="Texture2D" uid="uid://bb43y04tpo72u" path="res://characters/ranged/walking/walk_1.png" id="3_nlkqw"]
+[ext_resource type="Texture2D" uid="uid://dgdg5rjh5o6ng" path="res://characters/ranged/walking/walk_2.png" id="4_bqiwi"]
+[ext_resource type="Texture2D" uid="uid://c0tytint84770" path="res://characters/ranged/attack/mustard enemy attack 2.png" id="4_sbufd"]
+[ext_resource type="Texture2D" uid="uid://dsni0aep10flh" path="res://characters/ranged/attack/mustard enemy attack 3.png" id="5_jowr0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7eue1"]
 animations = [{
@@ -55,9 +54,6 @@ sprite_frames = SubResource("SpriteFrames_7eue1")
 animation = &"walk"
 frame = 1
 frame_progress = 0.62191
-
-[node name="Ranged" parent="." instance=ExtResource("1_ndhaa")]
-unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
