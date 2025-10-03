@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dbl6hwa0v1ug3"]
+[gd_scene load_steps=15 format=4 uid="uid://dbl6hwa0v1ug3"]
 
 [ext_resource type="PackedScene" uid="uid://bpjqvkj1kr5fo" path="res://scenes/game/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://b24673wfunc3n" path="res://scripts/game/game.gd" id="1_fc0e3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cxeb5otsj7hmg" path="res://scripts/menu/to_game.gd" id="5_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://b8p0p4gerasua" path="res://scenes/game/item_menu.tscn" id="8_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cpertf7cshbed" path="res://world_assets/generic_tile.png" id="8_87uf6"]
+[ext_resource type="Script" uid="uid://x0atoeem37bp" path="res://scripts/menu/menu_button.gd" id="11_kp23o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bdhmt"]
 
@@ -200,8 +201,23 @@ offset_bottom = 129.0
 theme_override_font_sizes/normal_font_size = 36
 text = "Current Wave: 69"
 
+[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
+offset_left = 1742.0
+offset_top = 1.0
+offset_right = 1918.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 40
+text = "Pause"
+item_count = 2
+popup/item_0/text = "Menu"
+popup/item_0/id = 0
+popup/item_1/text = "Quit"
+popup/item_1/id = 1
+script = ExtResource("11_kp23o")
+
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaveTimer/SubTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="DeadMenu/RestartButton" to="DeadMenu/RestartButton" method="_on_pressed"]
 [connection signal="pressed" from="DeadMenu/MainMenuButton" to="DeadMenu/MainMenuButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuButton" to="CanvasLayer/MenuButton" method="_on_pressed"]

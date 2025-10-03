@@ -11,11 +11,11 @@ func _physics_process(delta):
 		move_and_slide();
 	
 func _ready() -> void:
-	%Slime.play_walk();
+	%AnimatedSprite2D.play("walk")
 	
 func take_damage(amount):
 	health -= amount;
-	%Slime.play_hurt();
+	%AnimatedSprite2D.play("attack")
 	if (health <= 0):
 		game.killed_enems += 1;
 		Stats.enemies_killed += 1
