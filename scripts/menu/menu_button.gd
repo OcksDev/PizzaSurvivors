@@ -1,6 +1,7 @@
 extends MenuButton
 
 @export var menu_scene = "res://scenes/menu/main_menu.tscn"
+@onready var pause_label: RichTextLabel = $"../PauseLabel"
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS# Get the menu options when it pops up
@@ -12,10 +13,12 @@ func _on_pressed() -> void:
 	
 	if self.text == "Pause":
 		get_tree().paused = true
+		pause_label.visible = true
 		self.text = "Resume"
 		
 	elif self.text == "Resume":
 		get_tree().paused = false
+		pause_label.visible = false
 		self.text = "Pause"
 
 func _on_menu_item_pressed(id):
@@ -23,6 +26,7 @@ func _on_menu_item_pressed(id):
 		0: # Menu
 			get_tree().paused = false
 			get_tree().change_scene_to_file(menu_scene)
+			pause_label.visible = false
 			MenuPageChangeSound.play()
 		1: # Quit
 			get_tree().quit()

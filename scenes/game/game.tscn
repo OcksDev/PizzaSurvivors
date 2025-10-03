@@ -215,6 +215,16 @@ popup/item_1/text = "Quit"
 popup/item_1/id = 1
 script = ExtResource("11_kp23o")
 
+[node name="PauseLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 652.0
+offset_top = 373.0
+offset_right = 1279.0
+offset_bottom = 617.0
+theme_override_colors/default_color = Color(1, 0, 0, 0.588235)
+theme_override_font_sizes/normal_font_size = 175
+text = "Paused"
+
 [connection signal="died_lol" from="PlayerLol" to="." method="_on_player_lol_died_lol"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaveTimer/SubTimer" to="." method="_on_timer_timeout"]
