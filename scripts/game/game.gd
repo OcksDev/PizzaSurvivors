@@ -143,6 +143,7 @@ func startwave(wave):
 
 func show_items():
 	%ItemMenu.visible = true
+	%ItemMenu.anim();
 	%ItemMenu.set_random_items(player.item_titles, player.item_descs, player.item_imgs, self)
 	
 func select_item(item):
