@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2ulo6dgbvcf0"]
+[gd_scene load_steps=12 format=3 uid="uid://c2ulo6dgbvcf0"]
 
 [ext_resource type="Script" uid="uid://bo5hsit1wovte" path="res://scripts/menu/main_menu.gd" id="1_06t4h"]
 [ext_resource type="PackedScene" uid="uid://dbl6hwa0v1ug3" path="res://scenes/game/game.tscn" id="2_7vrkn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://scenes/menu/version_notes.tscn" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="5_qe12f"]
 [ext_resource type="AudioStream" uid="uid://bkjbu367au33d" path="res://audio/Italian Sweetness.mp3" id="5_vovv2"]
+[ext_resource type="AudioStream" uid="uid://cgsruu4rqdo8d" path="res://audio/Pizza.mp3" id="6_1k4da"]
 [ext_resource type="AudioStream" uid="uid://w05nvw6kr2tm" path="res://audio/vine-boom.mp3" id="6_8qtwp"]
 
 [sub_resource type="Theme" id="Theme_jix8l"]
@@ -29,6 +30,7 @@ game_scene = ExtResource("2_7vrkn")
 credits_scene = ExtResource("3_nlkkf")
 changelog_scene = ExtResource("4_qe12f")
 MENU_MUSIC = ExtResource("5_vovv2")
+PIZZA_MUSIC = ExtResource("6_1k4da")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
