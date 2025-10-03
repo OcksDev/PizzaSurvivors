@@ -23,7 +23,18 @@ offset_bottom = 1024.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 90
-text = "                  -- v0.0.3: --
+text = "                  -- v0.0.4: --
+- Added sprite for hunger enemy
+- Added boss enemy
+- 2 new powerups added (bullet speed and extra bullet chance)
+- Sprites for powerups added
+- Death music added
+- SFX for menu navigation and player damage added
+- Ketchup now slows down the player
+- Ketchup spawn locations more randomized and moved further away from screen
+- Bug where player could shoot itself fixed
+
+                  -- v0.0.3: --
 - Added saltshaker obstacles to world
 - Added bottlecap obstacles to world, which can be interacted with
 - Ketchup spawns in as waves are defeated, letting you feel the blood of victory
