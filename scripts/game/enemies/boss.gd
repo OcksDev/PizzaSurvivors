@@ -8,6 +8,7 @@ func _physics_process(delta):
 		var dir = global_position.direction_to(player.global_position);
 		velocity = dir * 100; # 4x slower movement than a regular enemy.
 		move_and_slide();
+		%AnimatedSprite2D.play("walk")
 	
 #func _ready() -> void:
 	#%Slime.play_walk();
