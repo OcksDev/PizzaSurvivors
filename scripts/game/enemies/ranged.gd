@@ -10,9 +10,10 @@ var was_rotating = false
 
 func create_bullet():
 	var new_b = bullet_scene.instantiate()
-	%Ranged.add_child(new_b)
-	new_b.global_position = %Ranged.global_position
+	%AnimationPlayer.add_child(new_b)
+	new_b.global_position = %AnimationPlayer.global_position
 	new_b.rotation = (player.global_position - global_position).angle()
+	%AnimationPlayer.play("shoot")
 
 func _physics_process(delta):
 	var time = Time.get_ticks_msec()
@@ -38,7 +39,9 @@ func _physics_process(delta):
 			
 			was_rotating = false
 		
-		move_and_slide();
+		move_and_slide()
+		if not %AnimationPlayer.is_playing():
+			%AnimationPlayer.play("walk")
 	
 #func _ready() -> void:
 #	%Ranged.play_walk(); # Does not exist yet.
