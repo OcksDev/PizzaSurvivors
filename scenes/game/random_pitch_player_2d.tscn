@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://crxivl3nxur7h"]
+
+[ext_resource type="AudioStream" uid="uid://dx11oer766gln" path="res://audio/Oof.wav" id="1_xr3p1"]
+[ext_resource type="Script" uid="uid://bm3dgloxvo5ah" path="res://scripts/game/random_pitch_player_2d.gd" id="2_egpyq"]
+
+[node name="RandomPitchPlayer2d" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_xr3p1")
+bus = &"GameSFX"
+script = ExtResource("2_egpyq")
