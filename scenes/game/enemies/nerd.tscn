@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://xxfc5ha2onxg"]
+[gd_scene load_steps=11 format=3 uid="uid://xxfc5ha2onxg"]
 
 [ext_resource type="Script" uid="uid://cqxyou0ig4k7c" path="res://scripts/game/enemies/enemy.gd" id="1_matxw"]
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_nurbv"]
 [ext_resource type="Texture2D" uid="uid://dw51hmudv7t20" path="res://characters/slime/attack/hunger attack 1.png" id="3_da7pr"]
 [ext_resource type="Texture2D" uid="uid://doc46mvxpbuh5" path="res://characters/slime/attack/hunger attack 2.png" id="4_7t5sm"]
 [ext_resource type="Texture2D" uid="uid://c8ht8x4k4ovk" path="res://characters/slime/attack/hunger attack 3.png" id="5_bx3mr"]
@@ -60,13 +59,6 @@ script = ExtResource("1_matxw")
 position = Vector2(-1, -9)
 shape = SubResource("CircleShape2D_ode1r")
 script = SubResource("GDScript_80wjy")
-
-[node name="Slime" parent="." instance=ExtResource("2_nurbv")]
-unique_name_in_owner = true
-visible = false
-y_sort_enabled = true
-position = Vector2(4, 9)
-scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
