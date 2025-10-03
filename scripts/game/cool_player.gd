@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var camera_2d: Camera2D = $Camera2D
+
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 
 signal died_lol
@@ -92,7 +94,7 @@ func refresh_health_bar():
 
 func take_damage(amount):
 	if not hurt_sound.is_playing():
-		hurt_sound.play();
+		hurt_sound.play_random_pitch()
 	health -= 0.1 # Overrides the amount of damage.
 	if(health <= 0):
 		died_lol.emit()
@@ -140,6 +142,8 @@ func update_player_stats():
 	%GunGun.set_spd(bullet_speed)
 	
 	has_already = true
+	
+	camera_2d.position_smoothing_speed = speed * 8.3333
 	
 
 func _path():
