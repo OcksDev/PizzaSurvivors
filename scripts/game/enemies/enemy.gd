@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = get_node("/root/Game/PlayerLol")
 var health = 15;
+var game;
 
 func _physics_process(delta):
 	if(player != null):
@@ -16,6 +17,7 @@ func take_damage(amount):
 	health -= amount;
 	%Slime.play_hurt();
 	if (health <= 0):
+		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 
 		var c = preload("res://smoke_explosion/smoke_explosion.tscn");

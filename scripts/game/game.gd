@@ -32,6 +32,7 @@ const MAX_KETCHUP_SPAWN_PER_WAVE = 8
 var enemies_for_wave = -1
 var current_wave = -1
 var max_wave_enemies = -1
+var killed_enems = -1
 
 var start_time = 0
 
@@ -126,9 +127,11 @@ func spawn_mob():
 	%PlayerLol._path().progress_ratio = randf();
 	add_child(mob);
 	mob.global_position = %PlayerLol._path().global_position;
+	mob.game = self;
 
 func startwave(wave):
 	current_wave = wave;
+	killed_enems = 0
 	max_wave_enemies = 1 + (3 * wave)
 	enemies_for_wave = max_wave_enemies
 	%SubTimer.wait_time = (0.9 / ((0.15 * wave) + 1)) + 0.1;
@@ -160,7 +163,12 @@ func _on_timer_timeout() -> void:
 	if (enemies_for_wave > 0):
 		%SubTimer.start();
 	else:
-		%WaveTimer.start();
+		var ddd = true
+		while ddd:
+			await get_tree().create_timer(0.1).timeout # Wait for 0.1 seconds
+			ddd = killed_enems < max_wave_enemies;
+		await get_tree().create_timer(0.5).timeout # Wait for 0.1 seconds
+		_on_wave_timer_timeout()
 
 func _on_player_lol_died_lol() -> void:
 	# If the music player is not playing or if the music playing is not the game over music, play the starting game music
