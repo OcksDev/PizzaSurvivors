@@ -7,6 +7,7 @@ var health = 15;
 var MIN_DISTANCE = 400
 var personal_rng = randf() * 500 - 250
 var was_rotating = false
+var game;
 
 func create_bullet():
 	var new_b = bullet_scene.instantiate()
@@ -50,6 +51,7 @@ func take_damage(amount):
 	health -= amount;
 	# %Ranged.play_hurt(); # Does not exist yet.
 	if (health <= 0):
+		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 
 		var c = preload("res://smoke_explosion/smoke_explosion.tscn");
