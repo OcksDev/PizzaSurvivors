@@ -74,7 +74,7 @@ func set_random_items(item_titles, item_descs, item_imgs, fucking_game_node):
 func select_anim(item, pp):
 	var x = 0.5;
 	var tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT) # Eases the animation out, slowing down towards the end
+	tween.set_ease(Tween.EASE_IN) # Eases the animation out, slowing down towards the end
 	if(pp==0):
 		tween.set_trans(Tween.TRANS_BACK)
 	else:
@@ -84,7 +84,7 @@ func select_anim(item, pp):
 	tween.parallel().tween_property(item1, "position", Vector2(item1.position.x+(item1.size.x/2),item1.position.y+(item1.size.y/2)), x).from(Vector2(item1.position.x, item1.position.y))
 	x = 0.5;
 	var tween2 = create_tween()
-	tween2.set_ease(Tween.EASE_IN_OUT) # Eases the animation out, slowing down towards the end
+	tween2.set_ease(Tween.EASE_IN) # Eases the animation out, slowing down towards the end
 	if(pp==1):
 		tween2.set_trans(Tween.TRANS_BACK)
 	else:
@@ -94,7 +94,7 @@ func select_anim(item, pp):
 	tween2.parallel().tween_property(item2, "position", Vector2(item2.position.x+(item2.size.x/2),item2.position.y+(item2.size.y/2)), x).from(Vector2(item2.position.x, item2.position.y))
 	x = 0.5
 	var tween3 = create_tween()
-	tween3.set_ease(Tween.EASE_IN_OUT) # Eases the animation out, slowing down towards the end
+	tween3.set_ease(Tween.EASE_IN) # Eases the animation out, slowing down towards the end
 	if(pp==2):
 		tween3.set_trans(Tween.TRANS_BACK)
 	else:
