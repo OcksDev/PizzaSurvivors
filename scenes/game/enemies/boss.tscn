@@ -27,6 +27,7 @@ script = ExtResource("1_isonq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(-6.99998, 14)
 scale = Vector2(2.135, 2.135)
 sprite_frames = SubResource("SpriteFrames_gu1po")

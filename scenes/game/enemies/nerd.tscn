@@ -1,14 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://xxfc5ha2onxg"]
+[gd_scene load_steps=12 format=3 uid="uid://xxfc5ha2onxg"]
 
 [ext_resource type="Script" uid="uid://cqxyou0ig4k7c" path="res://scripts/game/enemies/enemy.gd" id="1_matxw"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_nurbv"]
+[ext_resource type="Texture2D" uid="uid://dw51hmudv7t20" path="res://characters/slime/attack/hunger attack 1.png" id="3_da7pr"]
+[ext_resource type="Texture2D" uid="uid://doc46mvxpbuh5" path="res://characters/slime/attack/hunger attack 2.png" id="4_7t5sm"]
+[ext_resource type="Texture2D" uid="uid://c8ht8x4k4ovk" path="res://characters/slime/attack/hunger attack 3.png" id="5_bx3mr"]
+[ext_resource type="Texture2D" uid="uid://d26dvjdeckllb" path="res://characters/slime/walking/hunger roaming 1.png" id="6_lqf1o"]
+[ext_resource type="Texture2D" uid="uid://b884pxlc4yngw" path="res://characters/slime/walking/hunger roaming 2.png" id="7_uevuu"]
+[ext_resource type="Texture2D" uid="uid://cs4tlgqv8xql6" path="res://characters/slime/walking/hunger roaming 3.png" id="8_4ie3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ode1r"]
-radius = 48.0416
+radius = 33.0
 
 [sub_resource type="GDScript" id="GDScript_80wjy"]
 script/source = "extends CollisionShape2D
 "
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmb7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bx3mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7t5sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_da7pr")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lqf1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uevuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4ie3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uevuu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Nerd" type="CharacterBody2D"]
 collision_layer = 10
@@ -23,6 +63,17 @@ script = SubResource("GDScript_80wjy")
 
 [node name="Slime" parent="." instance=ExtResource("2_nurbv")]
 unique_name_in_owner = true
+visible = false
 y_sort_enabled = true
 position = Vector2(4, 9)
 scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(7, -5)
+scale = Vector2(2.455, 2.455)
+sprite_frames = SubResource("SpriteFrames_vmb7a")
+animation = &"attack"
+frame = 1
+frame_progress = 0.762567
