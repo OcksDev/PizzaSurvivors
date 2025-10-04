@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://b3xkoofbspkxi" path="res://scripts/game/sfx_player.gd" id="1_qsih3"]
 
 [node name="SFXPlayer" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_qsih3")

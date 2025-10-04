@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _on_start_pressed() -> void:
+	MenuPageChangeSound.play();
 	get_tree().change_scene_to_packed(game_scene);
 	pass # Replace with function body.
 

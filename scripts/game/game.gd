@@ -145,11 +145,13 @@ func startwave(wave):
 ### Upgrade management:
 
 func show_items():
+	SfxPlayer.play_and_delete_sound("res://audio/twinkle-chimes.mp3", 0.8, 1.2, 0.0, player.global_position)
 	%ItemMenu.visible = true
 	%ItemMenu.anim();
 	%ItemMenu.set_random_items(player.item_titles, player.item_descs, player.item_imgs, self)
 	
 func select_item(item):
+	SfxPlayer.play_and_delete_sound("res://audio/powerup.wav", 0.9, 1.3, 0.0, player.global_position)
 	%ItemMenu.visible = false;
 	player.items[item] += 1;
 	player.update_player_stats()
@@ -171,6 +173,8 @@ func _on_timer_timeout() -> void:
 		_on_wave_timer_timeout()
 
 func _on_player_lol_died_lol() -> void:
+	SfxPlayer.play_and_delete_sound("res://audio/player-death.wav", 0.9, 1.3, 0.0, player.global_position)
+	
 	# If the music player is not playing or if the music playing is not the game over music, play the starting game music
 	if not MusicPlayer.stream or MusicPlayer.stream.resource_path != GAMEOVER_MUSIC:
 		MusicPlayer.stream = preload(GAMEOVER_MUSIC)

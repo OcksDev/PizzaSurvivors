@@ -144,3 +144,4 @@ rotation = 1.56316
 progress = 2706.62
 
 [node name="HurtSound" parent="." instance=ExtResource("8_m5ugi")]
+min_pitch_scale = 0.85
