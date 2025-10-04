@@ -72,6 +72,7 @@ func set_random_items(item_titles, item_descs, item_imgs, fucking_game_node):
 	pass;
 	
 func select_anim(item, pp):
+	SfxPlayer.play_and_delete_sound("res://audio/powerup.wav", 0.9, 1.3, 0.0, gm.player.global_position)
 	var x = 0.5;
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN) # Eases the animation out, slowing down towards the end

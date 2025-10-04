@@ -151,7 +151,6 @@ func show_items():
 	%ItemMenu.set_random_items(player.item_titles, player.item_descs, player.item_imgs, self)
 	
 func select_item(item):
-	SfxPlayer.play_and_delete_sound("res://audio/powerup.wav", 0.9, 1.3, 0.0, player.global_position)
 	%ItemMenu.visible = false;
 	player.items[item] += 1;
 	player.update_player_stats()

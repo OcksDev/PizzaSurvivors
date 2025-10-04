@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://scenes/menu/version_notes.tscn" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="5_qe12f"]
 [ext_resource type="AudioStream" uid="uid://bkjbu367au33d" path="res://audio/Italian Sweetness.mp3" id="5_vovv2"]
-[ext_resource type="AudioStream" uid="uid://cgsruu4rqdo8d" path="res://audio/Pizza.mp3" id="6_1k4da"]
+[ext_resource type="AudioStream" uid="uid://bqaalut7tr634" path="res://audio/Pizza.mp3" id="6_1k4da"]
 [ext_resource type="AudioStream" uid="uid://w05nvw6kr2tm" path="res://audio/vine-boom.mp3" id="6_8qtwp"]
 
 [sub_resource type="Theme" id="Theme_jix8l"]
