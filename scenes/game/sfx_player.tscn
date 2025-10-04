@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csp6w3o0clf3"]
+
+[ext_resource type="Script" uid="uid://b3xkoofbspkxi" path="res://scripts/game/sfx_player.gd" id="1_qsih3"]
+
+[node name="SFXPlayer" type="Node2D"]
+script = ExtResource("1_qsih3")

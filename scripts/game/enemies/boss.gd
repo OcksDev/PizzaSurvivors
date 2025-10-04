@@ -17,6 +17,7 @@ func take_damage(amount):
 	health -= amount;
 	#%Slime.play_hurt();
 	if (health <= 0):
+		SfxPlayer.play_and_delete_sound("res://audio/boss-death.wav", 0.35, 0.6, 0.0, global_position)
 		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 

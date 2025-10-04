@@ -13,8 +13,9 @@ theme_override_font_sizes/bold_italics_font_size = 1
 theme_override_font_sizes/mono_font_size = 1
 theme_override_font_sizes/normal_font_size = 121
 text = "Credits:
-
-People, not Dave, though.
+Julian Kreis - Programming/Sound
+Everyone else add your names
+Not Dave, though.
 
 Music:
 \"Food\" by agerabeatz
@@ -28,6 +29,7 @@ https://pixabay.com/music/introoutro-pizza-192284/
 
 Sounds:
 AVA - Instinct - Riser - Cobra.wav by AVA_MUSIC_GROUP -- https://freesound.org/s/397143/ -- License: Attribution NonCommercial 3.0
+stonefall2 by TechspiredMinds -- https://freesound.org/s/729213/ -- License: Attribution 4.0
 Other CC0 sounds from freesound.org"
 horizontal_alignment = 1
 vertical_alignment = 1

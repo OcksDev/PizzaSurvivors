@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqibghathttcv"]
 
 [ext_resource type="Script" uid="uid://bhh0hdv1hy2e8" path="res://scripts/game/enemies/boss.gd" id="1_isonq"]
-[ext_resource type="Texture2D" uid="uid://dl2tl5d1crxg7" path="res://characters/boss/walk/walk_frame_1.png" id="2_jqq8o"]
-[ext_resource type="Texture2D" uid="uid://1qd8e30kkceu" path="res://characters/boss/walk/walk_frame_2.png" id="3_ysmd5"]
+[ext_resource type="Texture2D" uid="uid://crfahagi1qcjj" path="res://characters/boss/walk/walk_frame_1.png" id="2_jqq8o"]
+[ext_resource type="Texture2D" uid="uid://c1p7ht6g8t2dr" path="res://characters/boss/walk/walk_frame_2.png" id="3_ysmd5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gu1po"]
 animations = [{

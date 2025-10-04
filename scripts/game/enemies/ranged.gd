@@ -51,6 +51,7 @@ func take_damage(amount):
 	health -= amount;
 	# %Ranged.play_hurt(); # Does not exist yet.
 	if (health <= 0):
+		SfxPlayer.play_and_delete_sound("res://audio/mustard-death.wav", 0.8, 1.2, 0.0, global_position)
 		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 

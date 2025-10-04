@@ -6,6 +6,7 @@ var spd = 1
 const speed = 2000
 const max_dist = 2000
 
+
 func _physics_process(delta: float):
 	var dir = Vector2.RIGHT.rotated(rotation)
 	position += dir * speed * delta * spd

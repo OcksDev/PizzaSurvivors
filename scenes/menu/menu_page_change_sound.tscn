@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://djrph2batu7w3" path="res://audio/pageflip.wav" id="1_l8o3h"]
 
 [node name="MenuPageChange" type="AudioStreamPlayer2D"]
+process_mode = 3
 stream = ExtResource("1_l8o3h")
 max_distance = 1e+10
 panning_strength = 0.0

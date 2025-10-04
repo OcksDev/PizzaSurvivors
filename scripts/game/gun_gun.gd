@@ -37,6 +37,7 @@ func real_shoot(rot):
 	new_b.rotation = rot;
 	new_b.damage = damage;
 	new_b.spd = spd_m;
+	SfxPlayer.play_and_delete_sound("res://audio/hitmarker.wav", 0.9, 1.2, 0.0, global_position)
 	
 	
 func _on_timer_timeout() -> void:

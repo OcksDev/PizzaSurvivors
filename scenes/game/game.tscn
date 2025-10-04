@@ -230,4 +230,6 @@ text = "Paused"
 [connection signal="timeout" from="WaveTimer/SubTimer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="DeadMenu/RestartButton" to="DeadMenu/RestartButton" method="_on_pressed"]
 [connection signal="pressed" from="DeadMenu/MainMenuButton" to="DeadMenu/MainMenuButton" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/MenuButton" to="CanvasLayer/MenuButton" method="_on_button_down"]
 [connection signal="pressed" from="CanvasLayer/MenuButton" to="CanvasLayer/MenuButton" method="_on_pressed"]
+[connection signal="toggled" from="CanvasLayer/MenuButton" to="CanvasLayer/MenuButton" method="_on_toggled"]

@@ -17,6 +17,7 @@ func take_damage(amount):
 	health -= amount;
 	%AnimatedSprite2D.play("attack")
 	if (health <= 0):
+		SfxPlayer.play_and_delete_sound("res://audio/hunger-death.wav", 0.7, 1.1, 0.0, global_position)
 		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 
