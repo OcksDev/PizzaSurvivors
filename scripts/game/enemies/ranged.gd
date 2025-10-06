@@ -55,6 +55,7 @@ func take_damage(amount):
 		game.killed_enems += 1;
 		Stats.enemies_killed += 1
 		queue_free(); 
+		Global.player.heal_kill()
 		var c = preload("res://smoke_explosion/smoke_explosion.tscn");
 		var s = c.instantiate();
 		get_parent().add_child(s);

@@ -78,7 +78,7 @@ config/name="Pizza Survivors"
 run/main_scene="uid://dlc4lfg5x13ql"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.png"
+config/icon="uid://b16vokbr6farg"
 
 [autoload]
 
@@ -86,6 +86,7 @@ MusicPlayer="*res://scenes/music_player.tscn"
 Stats="*res://scripts/game/stats.gd"
 MenuPageChangeSound="*res://scenes/menu/menu_page_change_sound.tscn"
 SfxPlayer="*res://scenes/game/sfx_player.tscn"
+Global="*res://scripts/Global.gd"
 
 [display]
 

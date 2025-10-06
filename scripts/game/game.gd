@@ -103,6 +103,7 @@ func _ready() -> void:
 	start_time = Time.get_unix_time_from_system()
 	Stats.bullets_shot = 0
 	Stats.enemies_killed = 0
+	Global.player = player
 
 ### Enemy spawning:
 

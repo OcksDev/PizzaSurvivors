@@ -96,7 +96,6 @@ text = "Gary"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
-position_smoothing_enabled = true
 drag_left_margin = 0.02
 drag_top_margin = 0.02
 drag_right_margin = 0.02

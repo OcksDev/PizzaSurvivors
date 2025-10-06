@@ -13,6 +13,7 @@ var items = {
 	"max_health_increase":0,
 	"bullet_amount_increase":0,
 	"bullet_speed_increase":0,
+	"heal_on_kill":0,
 	#"range_increase":0,
 };
 var item_titles = {
@@ -22,6 +23,7 @@ var item_titles = {
 	"max_health_increase":"Bigger Crust",
 	"bullet_amount_increase":"Extra Cheese",
 	"bullet_speed_increase":"Greasier Oil",
+	"heal_on_kill":"Healthier Ingredients",
 };
 var item_descs = {
 	"damage_increase":"+15% Damage",
@@ -30,6 +32,7 @@ var item_descs = {
 	"max_health_increase":"+25% Max Health",
 	"bullet_amount_increase":"+25% chance to shoot an Extra Bullet in a Random Direction",
 	"bullet_speed_increase":"+20% Bullet Speed",
+	"heal_on_kill":"Heal +1 on Kill",
 };
 var item_imgs = {
 	# 0 = damage
@@ -38,9 +41,10 @@ var item_imgs = {
 	"damage_increase":0,
 	"attack_speed_increase":0,
 	"move_speed_increase":1,
-	"max_health_increase":1,
+	"max_health_increase":2,
 	"bullet_amount_increase":0,
 	"bullet_speed_increase":1,
+	"heal_on_kill":2,
 	#"range_increase":0,
 };
 	
@@ -101,6 +105,11 @@ func take_damage(amount):
 	refresh_health_bar()
 	
 	
+func heal_kill():
+	health += (0.1 * items["heal_on_kill"])
+	if(health > max_health): health = max_health
+
+
 var has_already = false
 func update_player_stats():
 	# base stats
