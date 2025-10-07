@@ -1,19 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7tniapdok74a"]
+[gd_scene load_steps=5 format=3 uid="uid://b7tniapdok74a"]
 
+[ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="1_ff4am"]
 [ext_resource type="Script" uid="uid://b480cqti2atim" path="res://scripts/menu/to_main_menu.gd" id="1_nm7lk"]
+[ext_resource type="Texture2D" uid="uid://dx017wlltbnqy" path="res://main_menu_assets/pizza_button.png" id="2_drpar"]
+[ext_resource type="Theme" uid="uid://8b2wdrop1y1o" path="res://themes/menu_buttons.tres" id="3_0s65u"]
 
 [node name="Credits" type="Node2D"]
 
+[node name="CuttingBoardBackgroundMainMenu" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 540)
+texture = ExtResource("1_ff4am")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 1914.0
-offset_bottom = 1073.0
+offset_left = 30.0
+offset_top = 197.0
+offset_right = 1895.0
+offset_bottom = 1053.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/bold_italics_font_size = 1
 theme_override_font_sizes/mono_font_size = 1
-theme_override_font_sizes/normal_font_size = 121
+theme_override_font_sizes/normal_font_size = 51
 text = "Credits:
 Julian Kreis - Programming/Sound
+Liam DeLap - Programming
 Everyone else add your names
 Not Dave, though.
 
@@ -34,22 +45,21 @@ Other CC0 sounds from freesound.org"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PizzaButton2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(227, 149)
+scale = Vector2(2.56, 2.56)
+texture = ExtResource("2_drpar")
+
 [node name="Button" type="Button" parent="."]
-offset_right = 293.0
-offset_bottom = 180.0
+offset_left = 16.0
+offset_top = 5.0
+offset_right = 447.0
+offset_bottom = 193.0
+theme = ExtResource("3_0s65u")
 theme_override_font_sizes/font_size = 131
 text = "Back"
+flat = true
 script = ExtResource("1_nm7lk")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.319424, 0.184101, 9.62615e-08, 1)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

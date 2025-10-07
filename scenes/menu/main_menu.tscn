@@ -8,21 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://scenes/menu/version_notes.tscn" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="5_qe12f"]
 [ext_resource type="AudioStream" uid="uid://bkjbu367au33d" path="res://audio/Italian Sweetness.mp3" id="5_vovv2"]
-[ext_resource type="AudioStream" uid="uid://bqaalut7tr634" path="res://audio/Pizza.mp3" id="6_1k4da"]
+[ext_resource type="AudioStream" uid="uid://cdj8v0vg2wqhn" path="res://audio/Pizza.mp3" id="6_1k4da"]
 [ext_resource type="AudioStream" uid="uid://w05nvw6kr2tm" path="res://audio/vine-boom.mp3" id="6_8qtwp"]
-
-[sub_resource type="Theme" id="Theme_jix8l"]
-default_font_size = 90
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_disabled_color = Color(0, 0, 0, 1)
-Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-Button/colors/font_outline_color = Color(0.956863, 0.929412, 0.607843, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 17
-Label/colors/font_shadow_color = Color(0, 0, 0, 1)
-Label/constants/shadow_outline_size = 90
+[ext_resource type="Theme" uid="uid://8b2wdrop1y1o" path="res://themes/menu_buttons.tres" id="11_bbqo6"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_06t4h")
@@ -121,19 +109,27 @@ offset_left = 820.0
 offset_top = 673.0
 offset_right = 1098.0
 offset_bottom = 750.0
-theme = SubResource("Theme_jix8l")
+theme = ExtResource("11_bbqo6")
 theme_override_font_sizes/font_size = 50
 text = "Start"
 flat = true
 
+[node name="PizzaButtonWithPepperoni2" type="Sprite2D" parent="ColorRect"]
+texture_filter = 1
+position = Vector2(1716, 130)
+scale = Vector2(2.14, 2.14)
+texture = ExtResource("3_fu7sn")
+
 [node name="CloseGameButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 1534.0
-offset_top = 8.0
-offset_right = 1912.0
-offset_bottom = 174.0
+offset_left = 1539.0
+offset_top = 41.0
+offset_right = 1903.0
+offset_bottom = 145.0
+theme = ExtResource("11_bbqo6")
 theme_override_font_sizes/font_size = 66
 text = "Quit game"
+flat = true
 
 [connection signal="pressed" from="ColorRect/RAHHH" to="." method="_on_rahhh_pressed"]
 [connection signal="pressed" from="ColorRect/changelog" to="." method="_on_changelog_pressed"]
