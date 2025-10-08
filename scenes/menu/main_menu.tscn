@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ddmwh06doxmyh" path="res://scenes/menu/version_notes.tscn" id="4_qe12f"]
 [ext_resource type="Texture2D" uid="uid://dhayfxyfhmkye" path="res://main_menu_assets/cutting_board_background_main_menu.png" id="5_qe12f"]
 [ext_resource type="AudioStream" uid="uid://bkjbu367au33d" path="res://audio/Italian Sweetness.mp3" id="5_vovv2"]
-[ext_resource type="AudioStream" uid="uid://bqaalut7tr634" path="res://audio/Pizza.mp3" id="6_1k4da"]
+[ext_resource type="AudioStream" uid="uid://bf3eey4rl2tmx" path="res://audio/Pizza.mp3" id="6_1k4da"]
 [ext_resource type="AudioStream" uid="uid://w05nvw6kr2tm" path="res://audio/vine-boom.mp3" id="6_8qtwp"]
 [ext_resource type="Theme" uid="uid://8b2wdrop1y1o" path="res://themes/menu_buttons.tres" id="11_bbqo6"]
-[ext_resource type="Texture2D" uid="uid://do8mlbdcolr60" path="res://main_menu_assets/title screen.png" id="12_d4hu8"]
+[ext_resource type="Texture2D" uid="uid://bibkalqs1qi7q" path="res://main_menu_assets/title screen.png" id="12_d4hu8"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_06t4h")
